@@ -1,0 +1,5 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><circle cx="200" cy="200" r="150" fill="#FFFBF3"/><circle cx="200" cy="200" r="138" fill="#D9973F"/>
+<circle cx="200" cy="200" r="104" fill="none" stroke="#1C2733" stroke-width="2" stroke-dasharray="4 6"/>
+<text x="200" y="160" font-family="Consolas,monospace" font-weight="600" text-anchor="middle" letter-spacing="2" font-size="15" fill="#1C2733">PEANUTS ARE THE</text>
+<text x="200" y="222" font-family="Georgia,serif" font-weight="700" text-anchor="middle" font-size="46" fill="#1C2733">CROP</text>
+<text x="200" y="262" font-family="Georgia,serif" font-weight="700" text-anchor="middle" font-size="30" fill="#1C2733" font-style="italic">of now</text></svg>
