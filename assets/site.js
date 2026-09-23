@@ -44,8 +44,8 @@ function renderHeader() {
   el.outerHTML = `
     <header class="site-header">
       <div class="wrap">
-        <a class="brand" href="index.html"><img src="assets/favicon.svg" alt="" width="30" height="30">
-          <span>Crop of Now<small>AN AGRICULTURAL CONCERN</small></span></a>
+        <a class="brand" href="index.html"><img src="assets/logo/lockup-horizontal-reverse.svg" alt="Crop of Now" height="30">
+          <small>AN AGRICULTURAL CONCERN</small></a>
         <nav class="nav" aria-label="Main">${links}</nav>
       </div>
     </header>
@@ -61,7 +61,7 @@ function renderFooter() {
       <div class="wrap">
         <div class="cols">
           <div>
-            <a class="brand" href="index.html"><img src="assets/favicon.svg" alt="" width="30" height="30"><span>Crop of Now</span></a>
+            <a class="brand" href="index.html"><img src="assets/logo/lockup-horizontal-reverse.svg" alt="Crop of Now" height="30"></a>
             <p style="margin-top:14px">Peanuts are the crop of now.<br>They were also the crop of then. We checked.</p>
           </div>
           <div><h4>The Company</h4><ul>
