@@ -1,97 +1,98 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&family=Libre+Caslon+Text:ital,wght@0,700;1,400;1,700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="../brand/brand-tokens.css">
 <style>
-  /* Print artwork for Crop of Now merch. Rendered to transparent PNG by render.js. Sizes are px at 300 dpi. */
+  /* Print artwork for the six launch products, re-set on Brand Guide v2 (Archivo Expanded Black headline,
+     Fraunces italic aside, Plex Mono fine print, the favicon peanut). Rendered to transparent PNG by render.js.
+     Sizes are px at 300 dpi. Open designs.html#<id> to see one. */
   html, body { margin: 0; background: transparent; }
-  .art { white-space: nowrap; display: none; position: relative; box-sizing: border-box; text-align: center; font-family: "Libre Caslon Text", serif; font-weight: 700; }
-  .art:target { display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .mono { font-family: "IBM Plex Mono", monospace; font-weight: 600; letter-spacing: .18em; }
-  .peanut { --c: #D9973F; }
+  .art { display: none; position: relative; box-sizing: border-box; flex-direction: column; align-items: center; justify-content: center; text-align: center; white-space: nowrap; color: var(--con-navy); }
+  .art:target { display: flex; }
+  .hl { font-family: var(--con-display); font-stretch: 125%; font-weight: 900; text-transform: uppercase; line-height: .98; letter-spacing: .01em; }
+  .as { font-family: var(--con-serif); font-style: italic; font-weight: 500; }
+  .fp { font-family: var(--con-mono); font-weight: 600; text-transform: uppercase; letter-spacing: .16em; }
+  img { display: block; }
 
-  #tee-pro-peanut { width: 3600px; height: 2400px; gap: 30px; }
-  #tee-pro-peanut .l1 { font-size: 355px; line-height: 1; color: #D9973F; }
-  #tee-pro-peanut .l2 { font-size: 355px; line-height: 1; color: #F6F0E4; }
-  #tee-pro-peanut .l3 { font-size: 120px; color: #EAD7B4; margin-top: 90px; }
+  /* Navy tee, 12 x 8 in */
+  #tee-pro-peanut { width: 3600px; height: 2400px; }
+  #tee-pro-peanut img { height: 430px; margin-bottom: 120px; }
+  #tee-pro-peanut .hl { font-size: 300px; }
+  #tee-pro-peanut .l1 { color: var(--con-gold); }
+  #tee-pro-peanut .l2 { color: var(--con-cream); margin-top: 30px; }
+  #tee-pro-peanut .fp { font-size: 96px; color: var(--con-cream); opacity: .8; margin-top: 130px; }
 
-  #tee-legume { width: 3600px; height: 2400px; color: #1C2733; }
-  #tee-legume .l0 { font-size: 130px; color: #9A5F1C; }
-  #tee-legume .l1 { font-size: 640px; line-height: 1.05; }
-  #tee-legume .l2 { font-size: 330px; font-style: italic; font-weight: 400; margin-top: -10px; }
-  #tee-legume .l3 { font-size: 105px; color: #4A5663; margin-top: 110px; }
+  /* Natural tee, 12 x 8 in */
+  #tee-legume { width: 3600px; height: 2400px; }
+  #tee-legume .fp.top { font-size: 110px; color: var(--con-roast); }
+  #tee-legume .hl { font-size: 560px; margin-top: 70px; }
+  #tee-legume .as { font-size: 300px; color: var(--con-roast); margin-top: 10px; }
+  #tee-legume .fp.bot { font-size: 90px; color: var(--con-slate); margin-top: 120px; }
 
-  #mug-gallons { width: 2700px; height: 1050px; flex-direction: row !important; justify-content: space-around !important; color: #1C2733; }
-  #mug-gallons .side { width: 1100px; display: flex; flex-direction: column; align-items: center; }
-  #mug-gallons .big { font-size: 400px; line-height: 1; color: #9A5F1C; }
-  #mug-gallons .sub { font-size: 78px; margin-top: 30px; }
-  #mug-gallons .it { font-size: 92px; font-style: italic; font-weight: 400; color: #4A5663; margin-top: 30px; }
-  #mug-gallons svg { width: 560px; height: 560px; }
-  #mug-gallons .brand { font-size: 110px; margin-top: 10px; }
+  /* 11 oz mug wrap, 9 x 3.5 in */
+  #mug-gallons { width: 2700px; height: 1050px; flex-direction: row; justify-content: space-around; }
+  #mug-gallons .side { width: 1150px; display: flex; flex-direction: column; align-items: center; }
+  #mug-gallons .hl { font-size: 380px; color: var(--con-roast); }
+  #mug-gallons .fp { font-size: 70px; margin-top: 36px; }
+  #mug-gallons .as { font-size: 100px; color: var(--con-slate); margin-top: 26px; }
+  #mug-gallons .mk { height: 480px; }
+  #mug-gallons .wm { width: 1050px; margin-top: 60px; }
 
-  #sticker-crop { width: 1200px; height: 1200px; border-radius: 50%; background: #FFFBF3; }
-  #sticker-crop .disc { position: absolute; inset: 36px; border-radius: 50%; background: #D9973F; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #1C2733; }
-  #sticker-crop .ring { position: absolute; inset: 120px; border-radius: 50%; border: 8px dashed #1C2733; }
-  #sticker-crop .l1 { font-size: 52px; margin-top: 40px; }
-  #sticker-crop .l2 { font-size: 250px; line-height: 1; margin-top: 30px; }
-  #sticker-crop .l3 { font-size: 150px; font-style: italic; font-weight: 400; }
+  /* 4 in round sticker */
+  #sticker-crop { width: 1200px; height: 1200px; border-radius: 50%; background: var(--con-paper); }
+  #sticker-crop .disc { position: absolute; inset: 36px; border-radius: 50%; background: var(--con-navy); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  #sticker-crop .ring { position: absolute; inset: 70px; border-radius: 50%; border: 10px solid var(--con-gold); }
+  #sticker-crop img { height: 330px; }
+  #sticker-crop .fp { font-size: 50px; color: var(--con-cream); margin-top: 34px; }
+  #sticker-crop .hl { font-size: 190px; color: var(--con-gold); margin-top: 18px; }
+  #sticker-crop .as { font-size: 130px; color: var(--con-cream); margin-top: -8px; }
 
-  #cap-crop { width: 1590px; height: 600px; color: #F6F0E4; }
-  #cap-crop .l1 { font-size: 165px; line-height: 1; letter-spacing: .02em; }
-
-  #tote-almond { width: 3600px; height: 3600px; color: #1C2733; }
-  #tote-almond .l1 { font-size: 320px; line-height: 1.1; }
-  #tote-almond .l2 { font-size: 320px; line-height: 1.1; color: #A8342A; }
-  #tote-almond .l3 { font-size: 140px; color: #4A5663; margin-top: 180px; }
+  /* Navy dad cap, flat embroidery in one white thread, 5.3 x 2 in */
+  #cap-crop { width: 1590px; height: 600px; }
+  #cap-crop img { width: 1500px; }
 
   #peanut-mark { width: 3000px; height: 3000px; }
-  #peanut-mark svg { width: 2800px; height: 2800px; }
+
+  /* Oyster tote, 12 x 12 in */
+  #tote-almond { width: 3600px; height: 3600px; }
+  #tote-almond .hl { font-size: 250px; line-height: 1.08; }
+  #tote-almond .l2 { color: var(--con-red); }
+  #tote-almond .fp { font-size: 120px; color: var(--con-slate); margin-top: 200px; }
+  #tote-almond img { height: 520px; margin-top: 220px; }
 </style></head>
 <body>
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <path id="shell" d="M32 4C41 4 47 10.5 47 19c0 6-4.2 9-4.2 13s5.2 7 5.2 13.5C48 54.5 41 61 32 61s-16-6.5-16-15.5C16 39 21.2 36 21.2 32S17 25 17 19C17 10.5 23 4 32 4Z"/>
-    <clipPath id="clip"><use href="#shell"/></clipPath>
-    <g id="peanut">
-      <g transform="translate(32 32) rotate(-24) scale(1.08) translate(-32 -32.5)">
-        <use href="#shell" fill="#B7762B"/>
-        <g clip-path="url(#clip)">
-          <use href="#shell" fill="#D9973F" transform="translate(-3.5 -1)"/>
-          <ellipse cx="24" cy="15" rx="2.8" ry="5.5" fill="#F2C27A" transform="rotate(14 24 15)"/>
-          <g fill="#A8661F">
-            <circle cx="31" cy="11" r="1.7"/><circle cx="38" cy="16" r="1.7"/><circle cx="30" cy="21" r="1.7"/>
-            <circle cx="37" cy="25" r="1.5"/><circle cx="27" cy="40" r="1.7"/><circle cx="34" cy="37" r="1.7"/>
-            <circle cx="40" cy="44" r="1.7"/><circle cx="24" cy="49" r="1.7"/><circle cx="32" cy="47" r="1.7"/>
-            <circle cx="38" cy="53" r="1.5"/><circle cx="29" cy="55" r="1.7"/>
-          </g>
-        </g>
-      </g>
-    </g>
-  </defs>
-</svg>
 
 <div class="art" id="tee-pro-peanut">
-  <div class="l1">PRO-PEANUT.</div><div class="l2">ANTI-ALMOND.</div><div class="l3 mono">CROPOFNOW.COM</div>
+  <img src="../brand/logo/svg/mark-full-color.svg" alt="">
+  <div class="hl l1">Pro-Peanut.</div><div class="hl l2">Anti-Almond.</div>
+  <div class="fp">Cropofnow.com</div>
 </div>
 
 <div class="art" id="tee-legume">
-  <div class="l0 mono">OFFICIAL CLASSIFICATION</div><div class="l1">LEGUME.</div><div class="l2">Not a nut.</div>
-  <div class="l3 mono">CROP OF NOW · COMPLIANCE DEPT.</div>
+  <div class="fp top">Official classification</div>
+  <div class="hl">Legume.</div>
+  <div class="as">Not a nut.</div>
+  <div class="fp bot">Crop of Now · Compliance Dept.</div>
 </div>
 
 <div class="art" id="mug-gallons">
-  <div class="side"><div class="big">3.2</div><div class="sub mono">GALLONS PER OUNCE</div><div class="it">(an almond could never)</div></div>
-  <div class="side"><svg viewBox="0 0 64 64"><use href="#peanut"/></svg><div class="brand">Crop of Now</div></div>
+  <div class="side"><div class="hl">3.2</div><div class="fp">Gallons per ounce</div><div class="as">(an almond could never)</div></div>
+  <div class="side"><img class="mk" src="../brand/logo/svg/mark-full-color.svg" alt=""><img class="wm" src="../brand/logo/svg/wordmark-full-color.svg" alt=""></div>
 </div>
 
 <div class="art" id="sticker-crop">
-  <div class="disc"><div class="ring"></div><div class="l1 mono">PEANUTS ARE THE</div><div class="l2">CROP</div><div class="l3">of now</div></div>
+  <div class="disc"><div class="ring"></div>
+    <img src="../brand/logo/svg/mark-full-color.svg" alt="">
+    <div class="fp">Peanuts are the</div><div class="hl">Crop</div><div class="as">of now</div></div>
 </div>
 
-<div class="art" id="cap-crop"><div class="l1">CROP OF NOW</div></div>
+<div class="art" id="cap-crop"><img src="../brand/logo/svg/wordmark-white.svg" alt=""></div>
 
 <div class="art" id="tote-almond">
-  <div class="l1">I DON'T DO</div><div class="l2">ALMOND BUTTER.</div><div class="l3 mono">— A PEANUT PERSON</div>
+  <div class="hl">I don't do</div><div class="hl l2">Almond butter.</div>
+  <div class="fp">— A peanut person</div>
+  <img src="../brand/logo/svg/mark-navy.svg" alt="">
 </div>
 
-<div class="art" id="peanut-mark"><svg viewBox="0 0 64 64"><use href="#peanut"/></svg></div>
+<div class="art" id="peanut-mark"><img src="../brand/logo/svg/mark-full-color.svg" alt="" style="width:2800px"></div>
+
 </body></html>

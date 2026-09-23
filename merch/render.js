@@ -1,5 +1,5 @@
 // Renders print-ready PNGs (transparent background) for Printful from merch/designs.html.
-// Usage: node merch/render.js   -> writes merch/print/*.png
+// Usage: node merch/render.js   -> writes merch/print/<id>-b2.png (brand v2; the older files stay for reference)
 'use strict';
 const path = require('path');
 const fs = require('fs');
@@ -28,7 +28,7 @@ const FILES = [
     await page.evaluate(() => document.fonts.ready);
     await page.waitForTimeout(800);
     const el = page.locator('#' + id);
-    await el.screenshot({ path: path.join(out, id + '.png'), omitBackground: true });
+    await el.screenshot({ path: path.join(out, id + '-b2.png'), omitBackground: true });
     console.log('wrote', id, w + 'x' + h);
   }
   await browser.close();
