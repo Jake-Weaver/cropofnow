@@ -34,3 +34,9 @@ Both live at the top of `assets/site.js`:
 python -m http.server 8765
 ```
 Then open http://localhost:8765
+
+## Hosting & DNS
+- GitHub Pages from `main` (root), repo `Jake-Weaver/cropofnow`. Custom domain `cropofnow.com` (see `CNAME`); `www` redirects to it.
+- DNS lives at Squarespace Domains (ex-Google Domains): four `A @` records to 185.199.108-111.153 and `CNAME www -> jake-weaver.github.io`.
+- Pre-cutover records and rollback steps: `docs/dns-before-cutover.md`.
+- The old Google Sites version still exists at sites.google.com/view/wwwcropofnowcom (not linked to the domain any more).
