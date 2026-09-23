@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Crop of Now — Brand Guide v2</title>
+<link rel="stylesheet" href="brand-tokens.css">
+<style>
+  @page { size: 8.5in 11in; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #d9d3c7; font: 15px/1.55 var(--con-mono); color: var(--con-navy); }
+  .page { width: 8.5in; min-height: 11in; margin: 0 auto 24px; background: var(--con-paper); padding: .7in .7in .6in; position: relative; page-break-after: always; overflow: hidden; }
+  @media print { body { background: none; } .page { margin: 0; height: 11in; } }
+  h1, h2 { font-family: var(--con-display); font-stretch: 125%; font-weight: 900; text-transform: uppercase; margin: 0; line-height: 1; letter-spacing: .01em; }
+  h1 { font-size: 54px; }
+  h2 { font-size: 34px; margin-bottom: 6px; }
+  h3 { font: 600 11px/1 var(--con-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--con-roast); margin: 26px 0 10px; }
+  .kicker { font: 600 11px/1 var(--con-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--con-roast); margin-bottom: 14px; display: block; }
+  .aside { font-family: var(--con-serif); font-style: italic; font-weight: 400; font-size: 21px; line-height: 1.35; color: var(--con-slate); margin: 10px 0 0; }
+  p, li { font-family: "Archivo", sans-serif; font-size: 13.5px; }
+  ul { padding-left: 18px; margin: 6px 0; } li { margin: 3px 0; }
+  .foot { position: absolute; left: .7in; right: .7in; bottom: .35in; display: flex; justify-content: space-between; font: 600 9px/1 var(--con-mono); letter-spacing: .16em; color: var(--con-slate); text-transform: uppercase; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .tile { border-radius: 10px; display: flex; align-items: center; justify-content: center; padding: 22px; }
+  .tile img { max-width: 100%; max-height: 100%; }
+  .cap { font: 600 9.5px/1.4 var(--con-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--con-slate); margin-top: 6px; }
+  .navy { background: var(--con-navy); } .cream { background: var(--con-cream); } .white { background: #fff; border: 1px solid #e4dccb; } .goldbg { background: var(--con-gold); }
+
+  /* cover */
+  .cover { background: var(--con-navy); color: var(--con-cream); display: flex; flex-direction: column; justify-content: space-between; }
+  .cover .foot { color: #9aa6b3; }
+  .cover img { width: 62%; margin: 1.1in auto 0; display: block; }
+  .cover h1 { color: var(--con-cream); font-size: 40px; }
+  .cover .aside { color: #c9c2b3; }
+
+  /* color */
+  .sw { border-radius: 10px; overflow: hidden; border: 1px solid #e4dccb; background: #fff; }
+  .sw .chip { height: 64px; }
+  .sw .meta { padding: 9px 11px 11px; font: 500 10.5px/1.5 var(--con-mono); }
+  .sw .meta b { display: block; font: 900 13px/1.2 "Archivo"; font-stretch: 125%; text-transform: uppercase; margin-bottom: 3px; }
+  .ratio { display: flex; height: 44px; border-radius: 8px; overflow: hidden; margin-top: 8px; }
+
+  /* type */
+  .spec { border-top: 2px solid var(--con-navy); padding: 12px 0 16px; display: grid; grid-template-columns: 1.5in 1fr; gap: 16px; }
+  .spec .label { font: 600 10px/1.5 var(--con-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--con-slate); }
+  .d1 { font: 900 44px/1 "Archivo"; font-stretch: 125%; text-transform: uppercase; }
+  .s1 { font: italic 500 34px/1.1 "Fraunces"; }
+  .m1 { font: 600 17px/1.3 "IBM Plex Mono"; letter-spacing: .16em; text-transform: uppercase; }
+  .alpha { font-size: 12px; color: var(--con-slate); margin-top: 6px; word-break: break-all; }
+
+  .donts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .dont { background: var(--con-cream); border-radius: 10px; height: 130px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .dont::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - 2px), var(--con-red) calc(50% - 2px), var(--con-red) calc(50% + 2px), transparent calc(50% + 2px)); opacity: .85; }
+  .dont img { max-width: 78%; max-height: 70%; }
+  table { width: 100%; border-collapse: collapse; font: 500 11.5px/1.45 var(--con-mono); }
+  th { text-align: left; font: 600 9.5px/1.2 var(--con-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--con-slate); border-bottom: 2px solid var(--con-navy); padding: 6px 6px 6px 0; }
+  td { border-bottom: 1px solid #e4dccb; padding: 7px 6px 7px 0; vertical-align: top; }
+  .say { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .say div { border-radius: 10px; padding: 14px 16px; font: italic 400 16px/1.35 "Fraunces"; }
+  .say .yes { background: var(--con-cream); border-left: 5px solid var(--con-green); }
+  .say .no { background: #f7ece9; border-left: 5px solid var(--con-red); }
+  .say small { display: block; font: 600 9px/1 var(--con-mono); letter-spacing: .14em; font-style: normal; margin-bottom: 8px; color: var(--con-slate); }
+</style></head>
+<body>
+
+<!-- 1 COVER -->
+<section class="page cover">
+  <img src="logo/png/lockup-stacked-reverse.png" alt="Crop of Now stacked logo">
+  <div>
+    <span class="kicker" style="color:var(--con-gold)">Brand Standards · Version 2 · September 2026</span>
+    <h1>Brand Guide</h1>
+    <p class="aside">Issued by the Office of Legume Communications. Please keep this document away from almonds.</p>
+  </div>
+  <div class="foot"><span>Crop of Now</span><span>Internal · Merch &amp; marketing use</span></div>
+</section>
+
+<!-- 2 THE IDEA -->
+<section class="page">
+  <span class="kicker">01 — The idea</span>
+  <h2>Peanuts are the crop of now.</h2>
+  <p class="aside">We are an agricultural conglomerate with one position: peanuts are the crop of now. Almonds are the crop of then.</p>
+  <div class="grid2" style="margin-top:30px;align-items:center">
+    <div class="tile cream" style="height:3.3in"><img src="logo/png/mark-full-color.png" style="height:2.6in"></div>
+    <div>
+      <h3>The mark</h3>
+      <p>One honest peanut: two lobes, a pinched waist, a highlight up top and a few shell dimples, tipped 24° forward like it's leaning into the next quarter. It's the same drawing as our website favicon, so the smallest version of the brand and the biggest one match. The joke lives in the words and the special editions. The peanut itself plays it straight.</p>
+      <p style="font-size:11.5px;color:var(--con-slate)">The shading uses three tints of Peanut Gold that appear only inside the mark: shadow #B7762B, highlight #F2C27A, dimples #A8661F. One-ink versions knock the dimples out.</p>
+      <h3>The feeling</h3>
+      <p>Serious logo, silly company. It should sit on a hoodie like a seed-company or tractor brand, and people should only get the joke on a second look.</p>
+      <h3>Top-of-mind rule</h3>
+      <p><strong>Peanut Gold on Boardroom Navy, every time.</strong> Every piece of merch, post and package has gold <em>and</em> navy on it. Repeat that pairing and people will think of us whenever they see it.</p>
+    </div>
+  </div>
+  <h3 style="margin-top:34px">Personality</h3>
+  <div class="grid3">
+    <div class="tile cream" style="flex-direction:column;align-items:flex-start;justify-content:flex-start"><b style="font:900 15px 'Archivo';font-stretch:125%">DEADPAN</b><p style="margin:6px 0 0">We never wink. The joke works because we act like it's a shareholder letter.</p></div>
+    <div class="tile cream" style="flex-direction:column;align-items:flex-start;justify-content:flex-start"><b style="font:900 15px 'Archivo';font-stretch:125%">CORPORATE</b><p style="margin:6px 0 0">Divisions, compliance, quarterly results. Always big-company talk, applied to legumes.</p></div>
+    <div class="tile cream" style="flex-direction:column;align-items:flex-start;justify-content:flex-start"><b style="font:900 15px 'Archivo';font-stretch:125%">GOOD-NATURED</b><p style="margin:6px 0 0">We roast almonds as a crop. We never punch at people, real brands, or allergies.</p></div>
+  </div>
+  <div class="foot"><span>Crop of Now · Brand Guide v2</span><span>02</span></div>
+</section>
+
+<!-- 3 LOGO SUITE -->
+<section class="page">
+  <span class="kicker">02 — Logo suite</span>
+  <h2>Five marks. One company.</h2>
+  <div style="margin-top:22px">
+    <div class="tile cream" style="height:1.7in"><img src="logo/png/lockup-horizontal-full-color.png" style="height:.95in"></div>
+    <div class="cap">A · Primary horizontal lockup: website header, hang tags, left chest, email</div>
+  </div>
+  <div class="grid2" style="margin-top:14px">
+    <div><div class="tile cream" style="height:2.7in"><img src="logo/png/lockup-stacked-full-color.png" style="height:2.1in"></div><div class="cap">B · Stacked, with tagline: tee backs, posters, packaging</div></div>
+    <div><div class="tile navy" style="height:2.7in"><img src="logo/png/seal-reverse.png" style="height:2.3in"></div><div class="cap">C · The seal: hats, patches, stickers, back-yoke prints</div></div>
+  </div>
+  <div class="grid2" style="margin-top:14px">
+    <div><div class="tile cream" style="height:1.6in"><img src="logo/png/mark-full-color.png" style="height:1.3in"></div><div class="cap">D · Mark alone: favicon, avatar, embroidery, once the name is known</div></div>
+    <div><div class="tile navy" style="height:1.6in"><img src="logo/png/wordmark-reverse.png" style="width:85%"></div><div class="cap">E · Wordmark alone: beanie cuffs, sleeve prints, narrow spaces</div></div>
+  </div>
+  <h3>Colorways (every lockup ships in all six)</h3>
+  <div class="grid3" style="grid-template-columns:repeat(6,1fr);gap:8px">
+    <div><div class="tile cream" style="height:.9in"><img src="logo/png/mark-full-color.png" style="height:.7in"></div><div class="cap">Full color</div></div>
+    <div><div class="tile navy" style="height:.9in"><img src="logo/png/mark-reverse.png" style="height:.7in"></div><div class="cap">Reverse</div></div>
+    <div><div class="tile cream" style="height:.9in"><img src="logo/png/mark-navy.png" style="height:.7in"></div><div class="cap">Navy (1 ink)</div></div>
+    <div><div class="tile navy" style="height:.9in"><img src="logo/png/mark-white.png" style="height:.7in"></div><div class="cap">White (1 ink)</div></div>
+    <div><div class="tile white" style="height:.9in"><img src="logo/png/mark-black.png" style="height:.7in"></div><div class="cap">Black (1 ink)</div></div>
+    <div><div class="tile navy" style="height:.9in"><img src="logo/png/mark-gold.png" style="height:.7in"></div><div class="cap">Gold (1 ink)</div></div>
+  </div>
+  <div class="foot"><span>Crop of Now · Brand Guide v2</span><span>03</span></div>
+</section>
+
+<!-- 4 LOGO RULES -->
+<section class="page">
+  <span class="kicker">03 — Using the logo</span>
+  <h2>Give it room. Leave it alone.</h2>
+  <div class="grid2" style="margin-top:22px;align-items:center">
+    <div class="tile cream" style="height:2.2in;padding:0">
+      <div style="position:relative;padding:.42in;outline:2px dashed var(--con-roast);outline-offset:-2px">
+        <img src="logo/png/lockup-horizontal-full-color.png" style="height:.62in;outline:1px solid rgba(28,39,51,.25)">
+      </div>
+    </div>
+    <div>
+      <h3 style="margin-top:0">Clear space</h3>
+      <p>Keep empty space on every side at least as tall as the <strong>"N" in NOW</strong>. No text, edges or seams inside that zone.</p>
+      <h3>Minimum size</h3>
+      <table style="font-size:10.5px">
+        <tr><th>Asset</th><th>Print</th><th>Screen</th><th>Embroidery</th></tr>
+        <tr><td>Horizontal</td><td>1.5 in</td><td>140 px</td><td>3.5 in</td></tr>
+        <tr><td>Stacked</td><td>1.25 in</td><td>120 px</td><td>3 in</td></tr>
+        <tr><td>Seal</td><td>1 in</td><td>96 px</td><td>2 in</td></tr>
+        <tr><td>Mark (height)</td><td>0.3 in</td><td>16 px</td><td>0.75 in</td></tr>
+      </table>
+    </div>
+  </div>
+  <h3 style="margin-top:30px">Don't</h3>
+  <div class="donts">
+    <div><div class="dont"><img src="logo/png/lockup-horizontal-full-color.png" style="transform:scaleX(1.3) scaleY(.7);max-width:62%"></div><div class="cap">Stretch or squash it</div></div>
+    <div><div class="dont"><img src="logo/png/mark-full-color.png" style="transform:rotate(24deg);height:90px"></div><div class="cap">Straighten or re-tilt the peanut. It already leans 24°.</div></div>
+    <div><div class="dont goldbg" style="background:var(--con-gold)"><img src="logo/png/mark-full-color.png" style="height:90px"></div><div class="cap">Put the gold mark on gold, tan or kraft</div></div>
+    <div><div class="dont"><img src="logo/png/lockup-horizontal-full-color.png" style="filter:hue-rotate(160deg) saturate(1.6)"></div><div class="cap">Recolor outside the palette</div></div>
+    <div><div class="dont"><img src="logo/png/mark-full-color.png" style="height:90px;filter:drop-shadow(8px 8px 0 #9A5F1C)"></div><div class="cap">Add shadows, outlines or effects</div></div>
+    <div><div class="dont"><img src="../assets/favicon.svg" style="height:80px"></div><div class="cap">Use the old illustrated peanut. It's retired.</div></div>
+  </div>
+  <div class="foot"><span>Crop of Now · Brand Guide v2</span><span>04</span></div>
+</section>
+
+<!-- 5 COLOR -->
+<section class="page">
+  <span class="kicker">04 — Corporate colors</span>
+  <h2>Gold on navy. Every time.</h2>
+  <p class="aside">Peanut Gold is our flag. It shows up on every item, but always as the smaller share.</p>
+  <h3>Core: on every piece</h3>
+  <div class="grid3">
+    <div class="sw"><div class="chip" style="background:#D9973F"></div><div class="meta"><b>Peanut Gold</b>HEX #D9973F<br>RGB 217 151 63<br>CMYK 0 30 71 15<br>Thread: nearest gold/old gold</div></div>
+    <div class="sw"><div class="chip" style="background:#1C2733"></div><div class="meta"><b>Boardroom Navy</b>HEX #1C2733<br>RGB 28 39 51<br>CMYK 45 24 0 80<br>Garment: Navy</div></div>
+    <div class="sw"><div class="chip" style="background:#F6F0E4"></div><div class="meta"><b>Shell Cream</b>HEX #F6F0E4<br>RGB 246 240 228<br>CMYK 0 2 7 4<br>Garment: Natural / Cream</div></div>
+  </div>
+  <h3>Support</h3>
+  <div class="grid3">
+    <div class="sw"><div class="chip" style="background:#9A5F1C"></div><div class="meta"><b>Dry Roast</b>HEX #9A5F1C · RGB 154 95 28<br>CMYK 0 38 82 40<br>Gold's partner for small text on light backgrounds</div></div>
+    <div class="sw"><div class="chip" style="background:#4A5663"></div><div class="meta"><b>Ticker Slate</b>HEX #4A5663 · RGB 74 86 99<br>CMYK 25 13 0 61<br>Secondary text, fine print</div></div>
+    <div class="sw"><div class="chip" style="background:#FFFBF3"></div><div class="meta"><b>Paper</b>HEX #FFFBF3 · RGB 255 251 243<br>CMYK 0 2 5 0<br>Page and web backgrounds</div></div>
+  </div>
+  <h3>Signal: only when it means something</h3>
+  <div class="grid2">
+    <div class="sw"><div class="chip" style="background:#2F6B3A;height:60px"></div><div class="meta"><b>Field Green</b>HEX #2F6B3A · RGB 47 107 58 · CMYK 56 0 46 58<br>Growth, "up", peanut performance. Never decoration.</div></div>
+    <div class="sw"><div class="chip" style="background:#A8342A;height:60px"></div><div class="meta"><b>Almond Alert</b>HEX #A8342A · RGB 168 52 42 · CMYK 0 69 75 34<br>Reserved for almonds: "down", warnings, the enemy.</div></div>
+  </div>
+  <h3>The mix</h3>
+  <div class="ratio"><div style="flex:60;background:#1C2733"></div><div style="flex:30;background:#F6F0E4"></div><div style="flex:10;background:#D9973F"></div></div>
+  <div class="cap" style="display:flex;justify-content:space-between"><span>60 Navy (or Cream)</span><span>30 Cream (or Navy)</span><span>10 Gold</span></div>
+  <p style="margin-top:12px;font-size:11.5px;color:var(--con-slate)">CMYK values are straight conversions. Printful DTG and embroidery work from the RGB files, so for offset or screen print, ask the printer for a drawdown. On light backgrounds gold is too pale for text under about 14 pt, so use Dry Roast there.</p>
+  <div class="foot"><span>Crop of Now · Brand Guide v2</span><span>05</span></div>
+</section>
+
+<!-- 6 TYPE -->
+<section class="page">
+  <span class="kicker">05 — Typography</span>
+  <h2>Three fonts. No others.</h2>
+  <p class="aside">A loud headline, a quiet aside, and the fine print. Every Crop of Now layout is built from these three.</p>
+  <div style="margin-top:14px">
+    <div class="spec"><div class="label">Headline<br><br>Archivo<br>Expanded Black<br>(width 125, weight 900)<br><br>ALL CAPS · +1% tracking</div>
+      <div><div class="d1">Legumes up.<br>Almonds down.</div><div class="alpha" style="font:900 13px 'Archivo';font-stretch:125%">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789</div></div></div>
+    <div class="spec"><div class="label">The aside<br><br>Fraunces<br>Italic 400–600<br><br>Sentence case · lowercase "of" in the wordmark</div>
+      <div><div class="s1">(an almond could never)</div><div class="alpha" style="font:italic 400 15px 'Fraunces'">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</div></div></div>
+    <div class="spec"><div class="label">The fine print<br><br>IBM Plex Mono<br>SemiBold 600<br><br>ALL CAPS · +14–18% tracking</div>
+      <div><div class="m1">Compliance Dept. · Form PN-26</div><div class="alpha" style="font:600 12px 'IBM Plex Mono';letter-spacing:.1em">ABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789 ▲▼·—</div></div></div>
+  </div>
+  <h3>How they stack</h3>
+  <div class="tile navy" style="flex-direction:column;align-items:flex-start;padding:20px 28px">
+    <span style="font:600 12px 'IBM Plex Mono';letter-spacing:.18em;color:var(--con-gold)">Q4 SHAREHOLDER UPDATE</span>
+    <span style="font:900 40px/1.05 'Archivo';font-stretch:125%;color:var(--con-cream);margin-top:10px">PEANUTS ARE<br>THE CROP OF NOW.</span>
+    <span style="font:italic 400 20px 'Fraunces';color:#c9c2b3;margin-top:8px">Almonds have been notified.</span>
+  </div>
+  <h3>Files</h3>
+  <p style="font-size:12px">In <code>brand/fonts/</code>: variable TTFs plus static cuts (<code>static/</code>) for Canva, Shopify and Printful's text tool. All three families are SIL Open Font License, <strong>free for commercial merch</strong>, and the licenses sit next to the files. The static cuts install as "CON Archivo Expanded Black", "CON Fraunces Semi Bold Italic" and so on.</p>
+  <div class="foot"><span>Crop of Now · Brand Guide v2</span><span>06</span></div>
+</section>
+
+<!-- 7 MERCH STANDARDS -->
+<section class="page">
+  <span class="kicker">06 — Merch standards</span>
+  <h2>How it goes on product.</h2>
+  <h3>Garment colors</h3>
+  <div class="grid3" style="grid-template-columns:repeat(4,1fr);gap:8px">
+    <div><div class="tile navy" style="height:.8in"></div><div class="cap">Navy: default</div></div>
+    <div><div class="tile" style="height:.8in;background:#EFE6D2"></div><div class="cap">Natural / Cream</div></div>
+    <div><div class="tile" style="height:.8in;background:#C9B48C"></div><div class="cap">Khaki: hats only</div></div>
+    <div><div class="tile" style="height:.8in;background:#222"></div><div class="cap">Black: allowed, not preferred</div></div>
+  </div>
+  <p style="font-size:12px;margin-top:8px">Avoid gold, yellow, tan and kraft garments: the gold mark disappears on them.</p>
+  <h3>Placements</h3>
+  <table>
+    <tr><th>Placement</th><th>Size</th><th>Asset</th></tr>
+    <tr><td>Left chest</td><td>3.5 in wide</td><td>Mark or seal; horizontal lockup at 4 in</td></tr>
+    <tr><td>Full front</td><td>up to 12 × 14 in</td><td>Headline designs (Archivo)</td></tr>
+    <tr><td>Full back</td><td>11–12 in wide</td><td>Stacked lockup or seal</td></tr>
+    <tr><td>Back yoke</td><td>3 in</td><td>Seal, one ink</td></tr>
+    <tr><td>Hat front</td><td>≤ 4 × 1.75 in</td><td>Mark (1–2 threads) or wordmark</td></tr>
+    <tr><td>Sleeve</td><td>≤ 3 in</td><td>Wordmark or CROPOFNOW.COM in Plex Mono</td></tr>
+  </table>
+  <h3>Every design has…</h3>
+  <ul>
+    <li><strong>Gold + navy.</strong> Either the garment or the ink supplies each color.</li>
+    <li><strong>One headline, one aside, one fine print.</strong> Archivo shouts, Fraunces whispers, Plex Mono signs off.</li>
+    <li><strong>A brand tag somewhere.</strong> The mark, the seal or CROPOFNOW.COM, even if it's tiny.</li>
+  </ul>
+  <h3>Production</h3>
+  <ul>
+    <li>DTG / print: transparent PNG, 300 dpi, sRGB, at final size (Printful templates).</li>
+    <li>Embroidery: at most 3 threads, no text under 0.25 in cap height, no hairlines, and use the one-ink knockout marks.</li>
+    <li>Only the files in <code>brand/logo/</code>. Never retype the wordmark.</li>
+  </ul>
+  <div class="foot"><span>Crop of Now · Brand Guide v2</span><span>07</span></div>
+</section>
+
+<!-- 8 VOICE -->
+<section class="page">
+  <span class="kicker">07 — Voice</span>
+  <h2>Write it like a quarterly report.</h2>
+  <p class="aside">Every line should read as if legal already approved it.</p>
+  <h3>Say it like this</h3>
+  <div class="say">
+    <div class="yes"><small>YES</small>Legume. Not a nut. (Classification confirmed by Compliance.)</div>
+    <div class="no"><small>NO</small>lol almonds are sooo dumb 😂🥜</div>
+    <div class="yes"><small>YES</small>This water was not used on almonds.</div>
+    <div class="no"><small>NO</small>Jokes about peanut allergies. Ever.</div>
+    <div class="yes"><small>YES</small>Field Operations · Peanut Division</div>
+    <div class="no"><small>NO</small>Naming real almond brands, or using Peanuts comic-strip characters</div>
+  </div>
+  <h3>Vocabulary we like</h3>
+  <p>Division · Compliance · Shareholder · Quarterly · Field Operations · Classification · Harvest · Initiative · Memo · Approved · Official · Authorized Personnel</p>
+  <h3>Legal name on product</h3>
+  <p>Use <strong>"Crop of Now"</strong> or <strong>"Crop of Now LLC"</strong> on labels. Don't put "Inc." on anything we sell, because the company is an LLC.</p>
+  <h3>Asset index</h3>
+  <table>
+    <tr><th>Folder</th><th>What's in it</th></tr>
+    <tr><td>brand/logo/svg</td><td>30 vector logos (5 lockups × 6 colorways), text converted to outlines, plus the o'clock special mark</td></tr>
+    <tr><td>brand/logo/png</td><td>The same files as transparent PNGs, 2400–3000 px</td></tr>
+    <tr><td>brand/special</td><td>Special-edition art (Field Operations), transparent PNGs, 2400 px</td></tr>
+    <tr><td>brand/fonts</td><td>Archivo, Fraunces, IBM Plex Mono (+ static cuts, OFL licenses)</td></tr>
+    <tr><td>brand/brand-tokens.css</td><td>Colors + fonts as CSS variables for the website</td></tr>
+    <tr><td>brand/build</td><td>Scripts that regenerate every logo from code</td></tr>
+  </table>
+  <div class="foot"><span>Crop of Now · Brand Guide v2</span><span>08</span></div>
+</section>
+<!-- 9 SPECIAL EDITIONS -->
+<section class="page">
+  <span class="kicker">08 — Special editions</span>
+  <h2>Field Operations. Limited issue.</h2>
+  <p class="aside">The everyday brand is the peanut. Special editions dress the same peanut in a uniform.</p>
+  <p>Each special edition is a family of marks built around the core peanut, released on limited merch. The first one is <strong>Field Operations</strong>: covert agency, presidential seal energy, and the compass star. Every piece keeps Peanut Gold on Boardroom Navy and carries the core peanut at its center.</p>
+  <div class="grid3" style="margin-top:18px">
+    <div><div class="tile navy" style="height:2in"><img src="special/field-ops/1A-crest.png" style="height:1.7in"></div><div class="cap">1A · Crest: hoodie back, certificates</div></div>
+    <div><div class="tile navy" style="height:2in"><img src="special/field-ops/1B-motto.png" style="height:1.7in"></div><div class="cap">1B · Stars &amp; Motto (Semper Subterra): chest print, tester-set box</div></div>
+    <div><div class="tile navy" style="height:2in"><img src="special/field-ops/1C-patch.png" style="height:1.7in"></div><div class="cap">1C · Tactical Patch: hats, velcro patches, sleeves</div></div>
+    <div><div class="tile cream" style="height:2in"><img src="special/field-ops/1D-monoline.png" style="height:1.7in"></div><div class="cap">1D · Monoline: clean tee, stickers, stationery</div></div>
+    <div><div class="tile cream" style="height:2in"><img src="special/field-ops/1E-badge.png" style="height:1.7in"></div><div class="cap">1E · Credentials: enamel pin, keychain</div></div>
+    <div><div class="tile cream" style="height:2in"><img src="logo/png/special-oclock-full-color.png" style="height:1.6in"></div><div class="cap">Peanut O'clock: the one place the peanut wears clock hands ("It's peanut o'clock" tee)</div></div>
+  </div>
+  <h3>Rules for special editions</h3>
+  <ul>
+    <li>The core peanut is always at the center, unchanged. The edition supplies the frame, never a new peanut.</li>
+    <li>They're for merch and campaigns only. The website header, packaging fronts and receipts use the core logo.</li>
+    <li>Seals and badges are original drawings. Never borrow or imitate a real government, military or agency seal, and never use "CIA", "FBI" or "Secret Service".</li>
+    <li>Future editions (Ballpark, Grown Underground, the Chairman) follow the same pattern.</li>
+  </ul>
+  <div class="foot"><span>Crop of Now · Brand Guide v2</span><span>09</span></div>
+</section>
+</body></html>

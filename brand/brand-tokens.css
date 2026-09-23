@@ -1,0 +1,24 @@
+/* Crop of Now brand tokens (v1, 2026-09-23). Source of truth: brand/brand-guide.html. */
+@font-face { font-family: "Archivo"; src: url("fonts/Archivo-Variable.ttf") format("truetype"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Fraunces"; src: url("fonts/Fraunces-Variable.ttf") format("truetype"); font-weight: 100 900; }
+@font-face { font-family: "Fraunces"; src: url("fonts/Fraunces-Italic-Variable.ttf") format("truetype"); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-Medium.ttf") format("truetype"); font-weight: 500; }
+@font-face { font-family: "IBM Plex Mono"; src: url("fonts/IBMPlexMono-SemiBold.ttf") format("truetype"); font-weight: 600; }
+
+:root {
+  /* Core: every piece uses navy + gold. */
+  --con-gold: #D9973F;    /* Peanut Gold: the signature */
+  --con-navy: #1C2733;    /* Boardroom Navy */
+  --con-cream: #F6F0E4;   /* Shell Cream */
+  /* Support */
+  --con-roast: #9A5F1C;   /* Dry Roast: gold's text-safe partner on light grounds */
+  --con-slate: #4A5663;   /* Ticker Slate: secondary text */
+  --con-paper: #FFFBF3;   /* Paper: page background */
+  /* Signal colors: only when they mean something */
+  --con-green: #2F6B3A;   /* Field Green: growth, "up" */
+  --con-red: #A8342A;     /* Almond Alert: almonds only */
+
+  --con-display: "Archivo", "Arial Black", sans-serif;      /* font-stretch: 125%; weight 900; UPPERCASE */
+  --con-serif: "Fraunces", Georgia, serif;                  /* italic 400-600: the aside */
+  --con-mono: "IBM Plex Mono", ui-monospace, monospace;     /* 600, UPPERCASE, letter-spacing .14-.18em */
+}
