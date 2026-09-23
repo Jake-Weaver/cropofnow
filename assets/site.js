@@ -2,7 +2,7 @@
 // ===== The only settings you should need to touch =====
 const CONFIG = {
   // Amazon Associates tracking ID (e.g. "cropofnow-20"). Blank = links still work, no commission.
-  amazonTag: "",
+  amazonTag: "cropofnow-20",
   // Merch store base URL once Printful/Shopify is live (e.g. "https://shop.cropofnow.com").
   // Blank = shop buttons read "Coming soon".
   storeUrl: "",
