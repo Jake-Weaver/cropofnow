@@ -1,0 +1,99 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Crop of Now — Merch v2 for review</title>
+<link rel="stylesheet" href="../../brand/brand-tokens.css">
+<style>
+  /* Review sheet: flat mockups of each v2 product with its print file placed roughly to scale. Not for customers. */
+  @page { size: 8.5in 11in; margin: 0; }
+  body { margin: 0; background: #d9d3c7; font-family: var(--con-mono); color: var(--con-navy); }
+  .page { width: 8.5in; height: 11in; margin: 0 auto 24px; background: var(--con-paper); padding: .55in .6in; box-sizing: border-box; position: relative; page-break-after: always; overflow: hidden; }
+  @media print { body { background: none; } .page { margin: 0; } }
+  .kicker { font: 600 10px/1 var(--con-mono); letter-spacing: .18em; text-transform: uppercase; color: var(--con-roast); }
+  h1 { font: 900 30px/1 "Archivo"; font-stretch: 125%; text-transform: uppercase; margin: 8px 0 4px; }
+  .aside { font: italic 400 16px/1.35 "Fraunces"; color: var(--con-slate); margin: 0 0 14px; }
+  .item { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+  .item.one { grid-template-columns: 1fr; }
+  .stage { background: #EDE7DA; border-radius: 10px; height: 3.55in; position: relative; overflow: hidden; }
+  .stage svg.g { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .stage img.art { position: absolute; transform: translateX(-50%); }
+  .stage .lbl { position: absolute; left: 10px; top: 9px; font: 600 8.5px/1 var(--con-mono); letter-spacing: .14em; color: var(--con-slate); text-transform: uppercase; }
+  .meta { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font: 500 10px/1.45 var(--con-mono); margin-top: 6px; }
+  .meta b { font: 900 14px/1.1 "Archivo"; font-stretch: 125%; text-transform: uppercase; grid-column: 1 / -1; margin-bottom: 2px; }
+  .meta span:nth-child(odd) { color: var(--con-slate); letter-spacing: .1em; text-transform: uppercase; font-weight: 600; font-size: 8.5px; padding-top: 1px; }
+  .foot { position: absolute; left: .6in; right: .6in; bottom: .3in; display: flex; justify-content: space-between; font: 600 8.5px/1 var(--con-mono); letter-spacing: .16em; color: var(--con-slate); text-transform: uppercase; }
+  table { width: 100%; border-collapse: collapse; font: 500 10.5px/1.4 var(--con-mono); }
+  th { text-align: left; font: 600 8.5px/1.2 var(--con-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--con-slate); border-bottom: 2px solid var(--con-navy); padding: 6px 6px 6px 0; }
+  td { border-bottom: 1px solid #e4dccb; padding: 6px 6px 6px 0; vertical-align: top; }
+</style></head>
+<body>
+<script>
+  // Garment silhouettes in a 400x340 box. Scale: ~9.6 box units per real inch of garment.
+  const S = {
+    tee: c => `<path d="M140 30 L100 44 L44 96 L82 140 L112 120 L112 330 L288 330 L288 120 L318 140 L356 96 L300 44 L260 30 C248 50 228 60 200 60 C172 60 152 50 140 30 Z" fill="${c}"/>`,
+    hoodie: c => `<path d="M150 34 C150 8 250 8 250 34 L302 48 L352 110 L376 318 L338 322 L300 150 L292 330 L108 330 L100 150 L62 322 L24 318 L48 110 L98 48 Z" fill="${c}"/><path d="M160 40 C170 70 230 70 240 40" stroke="rgba(0,0,0,.25)" stroke-width="4" fill="none"/>`,
+    crew: c => `<path d="M148 32 L100 46 L50 108 L26 318 L64 322 L102 150 L108 330 L292 330 L298 150 L336 322 L374 318 L350 108 L300 46 L252 32 C240 50 222 56 200 56 C178 56 160 50 148 32 Z" fill="${c}"/>`,
+    cap: c => `<path d="M90 230 C90 120 140 80 200 80 C260 80 310 120 310 230 Z" fill="${c}"/><path d="M60 232 C120 214 280 214 340 232 C300 262 100 262 60 232 Z" fill="${c}" opacity=".85"/>`,
+    beanie: c => `<path d="M100 200 C100 100 150 60 200 60 C250 60 300 100 300 200 Z" fill="${c}"/><rect x="92" y="190" width="216" height="80" rx="10" fill="${c}"/><rect x="92" y="190" width="216" height="80" rx="10" fill="rgba(0,0,0,.12)"/>`,
+    poster: c => `<rect x="118" y="14" width="164" height="218" fill="#fff"/><rect x="124" y="20" width="152" height="206" fill="${c}"/>`,
+    bottle: c => `<rect x="168" y="20" width="64" height="34" rx="8" fill="#9aa3ad"/><path d="M150 70 C150 56 250 56 250 70 L256 320 C256 332 144 332 144 320 Z" fill="${c}"/>`,
+    apron: c => `<path d="M150 40 L250 40 L262 120 C300 126 312 140 316 150 L300 330 L100 330 L84 150 C88 140 100 126 138 120 Z" fill="${c}"/><path d="M150 40 C140 10 260 10 250 40" stroke="${c}" stroke-width="6" fill="none"/>`,
+  };
+  const NAVY = '#1C2733', NAT = '#EFE6D2', KHAKI = '#C9B48C';
+  // stage(type, garment colour, art file, left% centre, top px, width px, label)
+  window.stage = (t, c, art, x, y, w, lbl) => `<div class="stage"><svg class="g" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid meet">${S[t](c)}</svg>${art ? `<img class="art" src="print/${art}.png" style="left:${x}%;top:${y}px;width:${w}px">` : ''}<div class="lbl">${lbl}</div></div>`;
+  window.NAVY = NAVY; window.NAT = NAT; window.KHAKI = KHAKI;
+</script>
+
+<section class="page">
+  <span class="kicker">Merch v2 · for Jake's review · not live</span>
+  <h1>Built on the new brand.</h1>
+  <p class="aside">Ten products, all in the new logo, colors and fonts. Mockups are flat stand-ins; sizes on the garment are approximate.</p>
+  <table>
+    <tr><th>#</th><th>Product</th><th>Blank (suggested)</th><th>Print</th><th>Price idea</th></tr>
+    <tr><td>1</td><td>Logo Tee</td><td>Bella+Canvas 3001, Navy</td><td>DTG front + back</td><td>$30</td></tr>
+    <tr><td>2</td><td>Peanut O'Clock Tee</td><td>Bella+Canvas 3001, Natural</td><td>DTG front</td><td>$28</td></tr>
+    <tr><td>3</td><td>Field Operations Hoodie</td><td>Premium pullover hoodie, Navy</td><td>DTG chest + back</td><td>$58</td></tr>
+    <tr><td>4</td><td>Quarterly Results Crewneck</td><td>Crewneck sweatshirt, Natural/Sand</td><td>DTG front</td><td>$48</td></tr>
+    <tr><td>5</td><td>Peanut Mark Dad Hat</td><td>Yupoong 6245CM, Khaki (or Navy)</td><td>Embroidery, 4 golds (1 on navy)</td><td>$30</td></tr>
+    <tr><td>6</td><td>Wordmark Beanie</td><td>Cuffed beanie, Navy</td><td>Embroidery, 2 threads</td><td>$26</td></tr>
+    <tr><td>7</td><td>Corporate Values Poster</td><td>Matte poster 18×24</td><td>Full bleed</td><td>$32</td></tr>
+    <tr><td>8</td><td>"Not Used on Almonds" Bottle</td><td>Stainless water bottle, White</td><td>Wrap</td><td>$32</td></tr>
+    <tr><td>9</td><td>Peanut Butter Division Apron</td><td>Apron, Natural</td><td>DTG front</td><td>$30</td></tr>
+    <tr><td>10</td><td>Mark + Seal Stickers</td><td>Kiss-cut stickers 3"</td><td>Die-cut</td><td>$5 each</td></tr>
+  </table>
+  <p style="font:500 10px/1.5 var(--con-mono);color:var(--con-slate);margin-top:14px">Blanks and prices are placeholders. I'll check Printful costs and margins when we load these into Shopify. Print files are in merch/v2/print (transparent PNG, 300 dpi, at final print size).</p>
+  <div class="foot"><span>Crop of Now · Merch v2</span><span>1</span></div>
+</section>
+
+<section class="page" id="p2"></section>
+<section class="page" id="p3"></section>
+<section class="page" id="p4"></section>
+
+<script>
+  const item = (a, b, meta) => `<div class="item${b ? '' : ' one'}">${a}${b || ''}</div><div class="meta">${meta}</div>`;
+  const m = (name, rows) => `<b>${name}</b>` + rows.map(([k, v]) => `<span>${k}</span><span>${v}</span>`).join('');
+  const foot = n => `<div class="foot"><span>Crop of Now · Merch v2</span><span>${n}</span></div>`;
+  // Tee: 12in ≈ 115 units ≈ 26% of stage width; stage is ~3.6in tall × ~3.55in wide → use % left and px widths tuned by eye.
+  document.getElementById('p2').innerHTML =
+    item(stage('tee', NAVY, 'logo-tee-chest', 58, 88, 40, 'Front · left chest'), stage('tee', NAVY, 'logo-tee-back', 50, 96, 118, 'Back · 11 in'),
+      m('1 · Logo Tee', [['Idea', 'The everyday piece. Seal on the chest, full logo and tagline on the back.'], ['Files', 'logo-tee-chest.png (3.5 in) · logo-tee-back.png (11 in)']])) +
+    '<div style="height:12px"></div>' +
+    item(stage('tee', NAT, 'oclock-tee', 50, 84, 122, 'Front · 12 in'), stage('hoodie', NAVY, 'hoodie-chest', 57, 96, 44, 'Hoodie front · left chest'),
+      m('2 · Peanut O\'Clock Tee  /  3 · Field Operations Hoodie (front)', [['Tee', 'The one shirt where the peanut gets clock hands. "It\'s peanut o\'clock. (it always is)"'], ['Hoodie', 'Mark + FIELD OPERATIONS / PEANUT DIVISION on the chest; the back is on the next page.']])) +
+    foot(2);
+  document.getElementById('p3').innerHTML =
+    item(stage('hoodie', NAVY, 'hoodie-back', 50, 80, 118, 'Hoodie back · 11 in'), stage('crew', NAT, 'quarterly-crew', 50, 88, 118, 'Crewneck front · 11 in'),
+      m('3 · Field Operations Hoodie (back)  /  4 · Quarterly Results Crewneck', [['Hoodie', 'Big seal, FIELD OPERATIONS, AUTHORIZED PERSONNEL ONLY.'], ['Crew', 'A stock chart: the gold peanut line goes up and the red almond line goes down. "Legumes outperform. (guidance raised)"']])) +
+    '<div style="height:12px"></div>' +
+    item(stage('cap', KHAKI, 'hat-mark', 50, 118, 46, 'Dad hat · khaki · 4 gold threads'), stage('cap', NAVY, 'hat-mark-gold', 50, 118, 46, 'Dad hat · navy · 1 gold thread'),
+      m('5 · Peanut Mark Dad Hat', [['Idea', 'Just the peanut, no words: only people who know the brand get it. Khaki carries the full shaded peanut (four gold threads); navy is one gold thread with the dimples left open.'], ['Files', 'hat-mark.png · hat-mark-gold.png (1.75 in tall)']])) +
+    foot(3);
+  document.getElementById('p4').innerHTML =
+    item(stage('beanie', NAVY, 'beanie-wordmark', 50, 205, 150, 'Beanie cuff · 5 in'), `<div class="stage" style="display:flex;align-items:center;justify-content:center"><img src="print/values-poster.png" style="height:3.05in;border:6px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.25)"><div class="lbl">Poster · 18×24</div></div>`,
+      m('6 · Wordmark Beanie  /  7 · Corporate Values Poster', [['Beanie', 'CROP of NOW across the cuff in cream thread, with "of" in gold.'], ['Poster', '1. Legumes. 2. Accountability. 3. Not almonds. "Management has reviewed this list and will not be taking questions."']])) +
+    '<div style="height:12px"></div>' +
+    item(stage('bottle', '#F4F4F2', 'bottle-wrap', 50, 150, 132, 'Bottle · wrap (front half)'), stage('apron', NAT, 'apron', 50, 118, 112, 'Apron · 10 in'),
+      m('8 · Bottle  /  9 · Apron', [['Bottle', '"This water was not used on almonds. (you\'re welcome)" beside the stacked logo.'], ['Apron', 'PEANUT BUTTER DIVISION · Authorized personnel only · Spreading since 2026.'], ['Stickers', 'Use brand/logo/png mark-full-color + seal-full-color as 3 in kiss-cut stickers. No new art needed.']])) +
+    foot(4);
+</script>
+</body></html>

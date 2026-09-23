@@ -1,0 +1,141 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../brand/brand-tokens.css">
+<style>
+  /* Crop of Now merch v2: print artwork built on Brand Guide v1. Authored in real inches; render.js
+     renders at 300 dpi to transparent PNG. One design per #id; open designs.html#<id> to see one. */
+  html, body { margin: 0; background: transparent; }
+  .art { display: none; position: relative; box-sizing: border-box; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--con-navy); }
+  .art:target, body.all .art { display: flex; }
+  body.all { background: #888; } body.all .art { outline: 2px dashed #f0f; margin: 20px; }
+  .hl { font-family: var(--con-display); font-stretch: 125%; font-weight: 900; text-transform: uppercase; line-height: .98; letter-spacing: .01em; }
+  .as { font-family: var(--con-serif); font-style: italic; font-weight: 500; }
+  .fp { font-family: var(--con-mono); font-weight: 600; text-transform: uppercase; letter-spacing: .16em; }
+  .gold { color: var(--con-gold); } .cream { color: var(--con-cream); } .roast { color: var(--con-roast); } .slate { color: var(--con-slate); }
+  img { display: block; }
+
+  /* 1 Logo tee (navy): left-chest seal + full back stacked lockup */
+  #logo-tee-chest { width: 3.5in; height: 3.5in; }
+  #logo-tee-chest img { width: 3.5in; }
+  #logo-tee-back { width: 11in; height: 9.4in; }
+  #logo-tee-back img { width: 11in; }
+
+  /* 2 Peanut o'clock tee (natural) */
+  #oclock-tee { width: 12in; height: 13in; gap: .1in; }
+  #oclock-tee img { width: 5.6in; margin-bottom: .35in; }
+  #oclock-tee .hl { font-size: 1.28in; }
+  #oclock-tee .as { font-size: .78in; margin-top: .12in; }
+  #oclock-tee .fp { font-size: .24in; margin-top: .55in; }
+
+  /* 3 Field Operations hoodie (navy): chest badge + back seal */
+  #hoodie-chest { width: 4in; height: 1.6in; flex-direction: row; gap: .22in; justify-content: flex-start; }
+  #hoodie-chest img { width: 1.2in; }
+  #hoodie-chest .fp { font-size: .2in; line-height: 1.55; text-align: left; letter-spacing: .14em; }
+  #hoodie-back { width: 11in; height: 13in; }
+  #hoodie-back img { width: 9.6in; }
+  #hoodie-back .hl { font-size: .95in; margin-top: .55in; }
+  #hoodie-back .fp { font-size: .3in; margin-top: .3in; }
+
+  /* 4 Quarterly results crewneck (natural) */
+  #quarterly-crew { width: 11in; height: 10.4in; }
+  #quarterly-crew .fp.top { font-size: .3in; }
+  #quarterly-crew svg { width: 10in; height: 4.6in; margin: .25in 0 .2in; overflow: visible; }
+  #quarterly-crew .hl { font-size: 1.02in; }
+  #quarterly-crew .as { font-size: .6in; margin-top: .12in; }
+
+  /* 5 Dad hat: embroidered mark (2 threads on khaki / 1 thread on navy) */
+  #hat-mark, #hat-mark-gold { width: 2in; height: 1.75in; }
+  #hat-mark img, #hat-mark-gold img { height: 1.75in; }
+
+  /* 6 Beanie: embroidered wordmark */
+  #beanie-wordmark { width: 5in; height: .8in; }
+  #beanie-wordmark img { width: 5in; }
+
+  /* 7 Corporate values poster (18x24, full bleed navy) */
+  #values-poster { width: 18in; height: 24in; background: var(--con-navy); justify-content: flex-start; align-items: flex-start; text-align: left; padding: 2in 1.8in 1.6in; }
+  #values-poster .fp { font-size: .36in; }
+  #values-poster ol { list-style: none; margin: 3.4in 0 .8in; padding: 0; counter-reset: v; }
+  #values-poster li { counter-increment: v; font-size: 1.05in; color: var(--con-cream); margin-bottom: .5in; display: flex; gap: .3in; align-items: baseline; }
+  #values-poster li::before { content: counter(v) "."; color: var(--con-gold); min-width: 1.05in; }
+  #values-poster .as { font-size: .7in; max-width: 13in; color: #c9c2b3; margin-top: .2in; }
+  #values-poster .foot { position: absolute; left: 1.8in; right: 1.8in; bottom: 1.6in; display: flex; justify-content: space-between; align-items: flex-end; }
+  #values-poster .foot img { width: 7.5in; }
+  #values-poster .foot .fp { font-size: .26in; color: #9aa6b3; text-align: right; line-height: 1.6; }
+
+  /* 8 Water bottle wrap */
+  #bottle-wrap { width: 9in; height: 4in; flex-direction: row; justify-content: space-around; }
+  #bottle-wrap .side { width: 4in; display: flex; flex-direction: column; align-items: center; }
+  #bottle-wrap .hl { font-size: .5in; line-height: 1.02; }
+  #bottle-wrap .as { font-size: .34in; margin-top: .14in; }
+  #bottle-wrap img { height: 2.6in; }
+
+  /* 9 Apron (natural) */
+  #apron { width: 10in; height: 10in; }
+  #apron img { width: 3.6in; }
+  #apron .fp.top { font-size: .26in; margin-top: .45in; }
+  #apron .hl { font-size: .98in; margin-top: .16in; }
+  #apron .as { font-size: .5in; margin-top: .2in; }
+  #apron .fp.bot { font-size: .22in; margin-top: .5in; }
+</style></head>
+<body>
+
+<div class="art" id="logo-tee-chest"><img src="../../brand/logo/svg/seal-reverse.svg"></div>
+<div class="art" id="logo-tee-back"><img src="../../brand/logo/svg/lockup-stacked-reverse.svg"></div>
+
+<div class="art" id="oclock-tee">
+  <img src="../../brand/logo/svg/special-oclock-full-color.svg">
+  <div class="hl">It's peanut<br>o'clock.</div>
+  <div class="as roast">(it always is)</div>
+  <div class="fp slate">Crop of Now · Cropofnow.com</div>
+</div>
+
+<div class="art" id="hoodie-chest">
+  <img src="../../brand/logo/svg/mark-full-color.svg">
+  <div class="fp cream">Field Operations<br><span class="gold">Peanut Division</span></div>
+</div>
+<div class="art" id="hoodie-back">
+  <img src="../../brand/logo/svg/seal-reverse.svg">
+  <div class="hl cream">Field Operations</div>
+  <div class="fp gold">Authorized personnel only</div>
+</div>
+
+<div class="art" id="quarterly-crew">
+  <div class="fp top slate">Q4 Results · Crop Performance</div>
+  <svg viewBox="0 0 1000 460">
+    <g stroke="#1C2733" stroke-width="3" opacity=".25"><line x1="40" y1="60" x2="1000" y2="60"/><line x1="40" y1="170" x2="1000" y2="170"/><line x1="40" y1="280" x2="1000" y2="280"/></g>
+    <line x1="40" y1="390" x2="1000" y2="390" stroke="#1C2733" stroke-width="7"/>
+    <line x1="40" y1="20" x2="40" y2="390" stroke="#1C2733" stroke-width="7"/>
+    <polyline points="60,330 190,300 320,318 450,240 580,250 710,165 840,120 960,52" fill="none" stroke="#D9973F" stroke-width="22" stroke-linejoin="round" stroke-linecap="round"/>
+    <polyline points="60,110 190,160 320,150 450,215 580,262 710,272 840,330 960,372" fill="none" stroke="#A8342A" stroke-width="10" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="26 18"/>
+    <text x="960" y="18" text-anchor="end" font-family="IBM Plex Mono" font-weight="600" font-size="34" letter-spacing="5" fill="#9A5F1C">PEANUTS ▲</text>
+    <text x="960" y="440" text-anchor="end" font-family="IBM Plex Mono" font-weight="600" font-size="34" letter-spacing="5" fill="#A8342A">ALMONDS ▼</text>
+  </svg>
+  <div class="hl">Legumes<br>outperform.</div>
+  <div class="as roast">(guidance raised)</div>
+</div>
+
+<div class="art" id="hat-mark"><img src="../../brand/logo/svg/mark-full-color.svg"></div>
+<div class="art" id="hat-mark-gold"><img src="../../brand/logo/svg/mark-gold.svg"></div>
+
+<div class="art" id="beanie-wordmark"><img src="../../brand/logo/svg/wordmark-reverse.svg"></div>
+
+<div class="art" id="values-poster">
+  <div class="fp gold">Corporate Values · Posted per Policy 4.1</div>
+  <ol class="hl"><li>Legumes.</li><li>Accountability.</li><li>Not almonds.</li></ol>
+  <div class="as">In that order. Management has reviewed this list and will not be taking questions.</div>
+  <div class="foot"><img src="../../brand/logo/svg/lockup-horizontal-reverse.svg"><div class="fp">Crop of Now<br>Cropofnow.com</div></div>
+</div>
+
+<div class="art" id="bottle-wrap">
+  <div class="side"><div class="hl">This water<br>was not used<br>on almonds.</div><div class="as roast">(you're welcome)</div></div>
+  <div class="side"><img src="../../brand/logo/svg/lockup-stacked-full-color.svg"></div>
+</div>
+
+<div class="art" id="apron">
+  <img src="../../brand/logo/svg/mark-full-color.svg">
+  <div class="fp top roast">Crop of Now</div>
+  <div class="hl">Peanut butter<br>division</div>
+  <div class="as slate">Authorized personnel only.</div>
+  <div class="fp bot slate">Spreading since 2026</div>
+</div>
+</body></html>
