@@ -161,3 +161,26 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
   .interview .row > img:first-child { order: 2; }
   .stats div { border-right: 0; }
 }
+
+/* Field Reports (blog) */
+.crumbs { font: 500 .8rem/1.4 var(--mono); letter-spacing: .06em; color: var(--ink-soft); margin-bottom: 18px; }
+.crumbs a { color: var(--ink-soft); }
+.prose { max-width: 720px; margin: 0 auto; }
+.prose h2 { margin-top: 2em; }
+.prose h3 { margin-top: 1.6em; }
+.prose ul, .prose ol { padding-left: 1.3em; margin: 0 0 1em; }
+.prose li { margin-bottom: .5em; }
+.prose .byline { font: 500 .82rem/1.5 var(--mono); color: var(--ink-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 12px 0; margin: 0 0 32px; }
+.prose .aside { font: italic 400 1.15rem/1.5 var(--serif); color: var(--ink-soft); border-left: 4px solid var(--peanut); padding-left: 18px; margin: 1.6em 0; }
+.table-wrap { overflow-x: auto; margin: 0 0 1.4em; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); }
+.table-wrap table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: .95rem; }
+.table-wrap th, .table-wrap td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.table-wrap th { font: 600 .75rem/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-soft); }
+.table-wrap tr:last-child td { border-bottom: 0; }
+.table-wrap tr.hl td { background: #FBEBD2; font-weight: 600; }
+.sources { font-size: .88rem; color: var(--ink-soft); }
+.post-card { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: inherit; }
+.post-card:hover h3 { color: var(--peanut-deep); }
+.card.featured { border: 2px solid var(--peanut); position: relative; }
+.card.featured .badge { margin-bottom: 12px; }
+.grid-4 { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }

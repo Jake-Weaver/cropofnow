@@ -15,6 +15,7 @@ const NAV = [
   ["shop.html", "Shareholder Merch"],
   ["pantry.html", "Approved Pantry"],
   ["reserve.html", "Reserve"],
+  ["blog.html", "Field Reports"],
   ["faq.html", "FAQ"],
 ];
 
@@ -65,7 +66,7 @@ function renderFooter() {
             <p style="margin-top:14px">Peanuts are the crop of now.<br>They were also the crop of then. We checked.</p>
           </div>
           <div><h4>The Company</h4><ul>
-            <li><a href="about.html">Leadership</a></li><li><a href="faq.html">Investor FAQ</a></li><li><a href="reserve.html">Crop of Now Reserve</a></li></ul></div>
+            <li><a href="about.html">Leadership</a></li><li><a href="faq.html">Investor FAQ</a></li><li><a href="reserve.html">Crop of Now Reserve</a></li><li><a href="blog.html">Field Reports</a></li></ul></div>
           <div><h4>Commerce</h4><ul>
             <li><a href="shop.html">Shareholder Merchandise</a></li><li><a href="pantry.html">The Approved Pantry</a></li></ul></div>
         </div>

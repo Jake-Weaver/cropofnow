@@ -10,7 +10,9 @@ Satirical peanut brand site. Plain static HTML/CSS/JS, no build step. Hosted on 
 | `faq.html` | Original FAQ, as "Investor Relations" |
 | `shop.html` | Merch (print-on-demand) |
 | `pantry.html` | "Approved Pantry": peanut butter picks with Amazon affiliate links |
-| `reserve.html` | Teaser for the future craft-peanut line |
+| `reserve.html` | Crop of Now Reserve: Valencia peanuts roasted in Pottsville (coming soon) |
+| `blog.html` | "Field Reports" blog index |
+| `valencia-peanuts.html` | SEO article: why Valencias are the top-tier peanut (keep facts sourced) |
 | `home.html`, `about-us.html` | Redirects from the old Google Sites URLs |
 | `404.html` | Not-found page |
 
