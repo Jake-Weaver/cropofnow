@@ -108,6 +108,11 @@ section.alt { background: var(--paper); border-top: 1px solid var(--line); borde
 .product { display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
 .product .mock { background: var(--shell); aspect-ratio: 1; display: grid; place-items: center; padding: 24px; }
 .product .mock svg { width: 100%; height: 100%; }
+.product .mock.photo { padding: 0; position: relative; background: #fff; }
+.product .mock.photo img { width: 100%; height: 100%; object-fit: cover; }
+.product .mock.photo .alt { position: absolute; inset: 0; opacity: 0; transition: opacity .35s ease; }
+.product:hover .mock.photo .alt { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .product .mock.photo .alt { transition: none; } }
 .product .body { padding: 22px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
 .product .price { font: 600 1rem/1 var(--mono); color: var(--ink-soft); }
 .product .btn { margin-top: auto; align-self: flex-start; }

@@ -1,0 +1,68 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../brand/brand-tokens.css">
+<style>
+  /* Crop of Now coaster: guerrilla marketing for local bars and restaurants. The front asks the question and answers it;
+     the back scans to cropofnow.com/what. 4 in round, 300 dpi, 1/16 in bleed (canvas 1238 px, trim 1200 px, safe 1110 px).
+     Rendered by render.js. Open coaster.html#<id> to see one. */
+  html, body { margin: 0; background: transparent; }
+  .art { display: none; position: relative; box-sizing: border-box; width: 1238px; height: 1238px; }
+  .art:target, body.all .art { display: block; }
+  body.all { background: #888; } body.all .art { margin: 20px; display: inline-block; }
+  .face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .hl { font-family: var(--con-display); font-stretch: 125%; font-weight: 900; text-transform: uppercase; line-height: .95; letter-spacing: .01em; }
+  .as { font-family: var(--con-serif); font-style: italic; font-weight: 500; }
+  .fp { font-family: var(--con-mono); font-weight: 600; text-transform: uppercase; letter-spacing: .16em; }
+  /* guides, only with ?guides */
+  .guide { position: absolute; border-radius: 50%; border: 3px dashed magenta; pointer-events: none; display: none; }
+  body.guides .guide { display: block; }
+
+  /* FRONT: cream, the question and the answer */
+  #front { background: var(--con-cream); }
+  #front .ring { position: absolute; inset: 88px; border-radius: 50%; border: 10px solid var(--con-navy); }
+  #front .ring2 { position: absolute; inset: 112px; border-radius: 50%; border: 3px solid var(--con-gold); }
+  #front .fp.top { font-size: 28px; color: var(--con-roast); }
+  #front .q1 { font-size: 58px; color: var(--con-navy); margin-top: 24px; }
+  #front .q2 { font-size: 86px; color: var(--con-navy); margin-top: 6px; }
+  #front img { height: 230px; margin: 30px 0 18px; }
+  #front .as { font-size: 56px; color: var(--con-roast); line-height: 1.1; }
+  #front .fp.bot { font-size: 28px; color: var(--con-navy); margin-top: 28px; }
+
+  /* BACK: navy, place drink here + QR to the answer page */
+  #back { background: var(--con-navy); }
+  #back .ring { position: absolute; inset: 88px; border-radius: 50%; border: 10px solid var(--con-gold); }
+  #back .hl { font-size: 74px; color: var(--con-cream); }
+  #back .as { font-size: 48px; color: var(--con-gold); margin-top: 16px; }
+  #back .qr { width: 330px; height: 330px; background: var(--con-cream); border-radius: 22px; padding: 40px; box-sizing: border-box; margin-top: 38px; }
+  #back .qr svg { width: 100%; height: 100%; display: block; }
+  #back .fp { font-size: 28px; color: var(--con-cream); margin-top: 28px; }
+  #back .fp.small { font-size: 24px; color: var(--con-gold); margin-top: 14px; opacity: .9; }
+</style></head>
+<body>
+
+<div class="art" id="front">
+  <div class="ring"></div><div class="ring2"></div>
+  <div class="face">
+    <div class="fp top">A question from management</div>
+    <div class="hl q1">What is the</div>
+    <div class="hl q2">Crop of now?</div>
+    <img src="../../brand/logo/svg/mark-full-color.svg" alt="">
+    <div class="as">Peanuts. It's always<br>been peanuts.</div>
+    <div class="fp bot">Cropofnow.com</div>
+  </div>
+  <div class="guide" style="inset:19px"></div><div class="guide" style="inset:64px"></div>
+</div>
+
+<div class="art" id="back">
+  <div class="ring"></div>
+  <div class="face">
+    <div class="hl">Place drink<br>here.</div>
+    <div class="as">(Almond milk not permitted.)</div>
+    <div class="qr"><!--QR--></div>
+    <div class="fp">Scan for the full briefing</div>
+    <div class="fp small">Crop of Now · Field Operations</div>
+  </div>
+  <div class="guide" style="inset:19px"></div><div class="guide" style="inset:64px"></div>
+</div>
+
+</body></html>
