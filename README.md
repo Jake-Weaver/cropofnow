@@ -1,6 +1,6 @@
 # Crop of Now — cropofnow.com
 
-Satirical peanut brand site. Plain static HTML/CSS/JS, no build step. Hosted on GitHub Pages.
+Satirical peanut brand site. Plain static HTML/CSS/JS, no build step. Hosted on Jake's netcup VPS (Caddy); DNS at Cloudflare.
 
 ## Pages
 | File | What it is |
@@ -38,7 +38,8 @@ python -m http.server 8765
 Then open http://localhost:8765
 
 ## Hosting & DNS
-- GitHub Pages from `main` (root), repo `Jake-Weaver/cropofnow`. Custom domain `cropofnow.com` (see `CNAME`); `www` redirects to it.
-- DNS lives at Squarespace Domains (ex-Google Domains): four `A @` records to 185.199.108-111.153 and `CNAME www -> jake-weaver.github.io`.
+- Served by Caddy on the netcup VPS (`bobweaver-vps`, 159.195.19.131) from a checkout at `/opt/cropofnow`. A systemd timer (`cropofnow-pull.timer`) pulls `main` every minute, so **pushing to `main` still deploys** (live within ~1 min). Caddy issues the HTTPS cert itself and redirects `www` and `http://` to `https://cropofnow.com`. `/docs`, `/ops` and dotfiles are not served.
+- DNS is at **Cloudflare** (DNS only, grey cloud; nameservers `cora`/`isaac.ns.cloudflare.com`, switched 2026-09-29). The domain is still *registered* at Squarespace (auto-renew on). Mail records (Mailgun MX/SPF/DKIM/DMARC for Squarespace email forwarding) live in Cloudflare too.
+- GitHub Pages is still enabled as a fallback; the `CNAME` file is for it. Rollback = in Cloudflare, point `A @` back at GitHub Pages (185.199.108-111.153) and delete the `AAAA @` record.
 - Pre-cutover records and rollback steps: `docs/dns-before-cutover.md`.
 - The old Google Sites version still exists at sites.google.com/view/wwwcropofnowcom (not linked to the domain any more).
