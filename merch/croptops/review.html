@@ -1,0 +1,120 @@
+<title>Crop of Now Crop Tops</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,900&family=Fraunces:ital,wght@1,500&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  /* Layout: a board memo. Navy masthead band, then a two-up grid of garment "exhibits". Brand tokens from brand-tokens.css. */
+  :root {
+    --bg: #FFFBF3; --surface: #F6F0E4; --fg: #1C2733; --muted: #4A5663; --rule: #1C273322;
+    --gold: #D9973F; --gold-text: #9A5F1C; --band: #1C2733; --band-fg: #F6F0E4;
+    --display: "Archivo", "Arial Black", sans-serif;
+    --serif: "Fraunces", Georgia, serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #131A22; --surface: #1C2733; --fg: #F6F0E4; --muted: #AEB7C1; --rule: #F6F0E422;
+    --gold-text: #E2AA5E; --band: #0D1218; --band-fg: #F6F0E4; color-scheme: dark } }
+  :root[data-theme="dark"] {
+    --bg: #131A22; --surface: #1C2733; --fg: #F6F0E4; --muted: #AEB7C1; --rule: #F6F0E422;
+    --gold-text: #E2AA5E; --band: #0D1218; --band-fg: #F6F0E4; color-scheme: dark }
+
+  body { background: var(--bg); color: var(--fg); font-family: var(--mono); line-height: 1.55; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; }
+  .fp { font-family: var(--mono); font-weight: 600; text-transform: uppercase; letter-spacing: .16em; font-size: 12px; }
+  .hl { font-family: var(--display); font-stretch: 125%; font-weight: 900; text-transform: uppercase; line-height: .98; margin: 0; text-wrap: balance; }
+  .as { font-family: var(--serif); font-style: italic; font-weight: 500; }
+
+  header { background: var(--band); color: var(--band-fg); padding-block: 40px 36px; }
+  header .fp { color: var(--gold); }
+  header h1 { font-size: clamp(34px, 7vw, 68px); margin-top: 14px; }
+  header p { font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2.4vw, 22px); max-width: 60ch; margin: 14px 0 0; opacity: .9; }
+
+  main { padding-block: 36px 56px; display: grid; gap: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr)); gap: 28px; }
+  .ex { display: grid; gap: 12px; align-content: start; min-width: 0; }
+  .ex img { width: 100%; height: auto; display: block; border-radius: 4px; }
+  .ex .meta { display: flex; flex-wrap: wrap; gap: 8px 16px; justify-content: space-between; align-items: baseline; border-top: 3px solid var(--fg); padding-top: 10px; }
+  .ex .meta .fp { color: var(--gold-text); }
+  .ex h2 { font-size: 26px; }
+  .ex p { margin: 0; color: var(--muted); font-size: 14px; max-width: 62ch; }
+  .ex .line { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--fg); }
+  .tag { font-family: var(--mono); font-weight: 600; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; border: 1.5px solid currentColor; padding: 2px 8px; border-radius: 2px; color: var(--muted); }
+  .tag.special { color: var(--gold-text); }
+
+  .notes { background: var(--surface); padding: 22px 24px; border-radius: 4px; display: grid; gap: 10px; }
+  .notes h3 { font-size: 18px; }
+  .notes ul { margin: 0; padding-left: 18px; font-size: 14px; display: grid; gap: 6px; max-width: 80ch; }
+  .notes code { font-size: 13px; }
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="fp">Board review · Merch · Crop Tops collection</div>
+    <h1 class="hl">Crop Tops</h1>
+    <p>Round 2. Top Crop stays, and five new designs follow its format: the peanut, a two-line headline, and a short aside. None of them is in Printful or Shopify yet.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="grid" aria-label="Designs">
+    <article class="ex">
+      <img src="mockups/top-crop.png" alt="Navy crop tee: peanut mark over TOP CROP, Peanuts, obviously." width="1200" height="912">
+      <div class="meta"><h2 class="hl">Top Crop</h2><span class="fp">Navy tee</span></div>
+      <div class="line">"Top crop." / Peanuts, obviously.</div>
+      <p>The core logo piece. The full-colour peanut and cream type on navy. The safest seller and the one to launch first.</p>
+      <div><span class="tag">Core line</span></div>
+    </article>
+
+    <article class="ex">
+      <img src="mockups/cream-of-the-crop.png" alt="Natural crop tee: peanut over CREAM OF THE CROP, Peanut butter, technically." width="1200" height="912">
+      <div class="meta"><h2 class="hl">Cream of the Crop</h2><span class="fp">Natural tee</span></div>
+      <div class="line">Peanut butter, technically.</div>
+      <p>A common phrase that happens to contain the brand name. Navy ink on a natural tee, the light-colour partner to Top Crop.</p>
+      <div><span class="tag">Core line</span></div>
+    </article>
+
+    <article class="ex">
+      <img src="mockups/high-yield.png" alt="Gold crop tee: navy peanut over HIGH YIELD, Returns may vary." width="1200" height="912">
+      <div class="meta"><h2 class="hl">High Yield</h2><span class="fp">Gold tee</span></div>
+      <div class="line">Returns may vary.</div>
+      <p>Farm talk and investor talk in two words. One-colour navy print on a Peanut Gold tee, so it is cheap to print and easy to embroider.</p>
+      <div><span class="tag">Core line</span></div>
+    </article>
+
+    <article class="ex">
+      <img src="mockups/shell-company.png" alt="Black crop tee: peanut over SHELL COMPANY, Fully legitimate." width="1200" height="912">
+      <div class="meta"><h2 class="hl">Shell Company</h2><span class="fp">Black tee</span></div>
+      <div class="line">Fully legitimate.</div>
+      <p>The deadpan-corporate joke in its shortest form. The peanut shell makes the pun work.</p>
+      <div><span class="tag">Core line</span></div>
+    </article>
+
+    <article class="ex">
+      <img src="mockups/deep-cover.png" alt="Military green crop tee: sprout above a soil line, peanut pegged below it, DEEP COVER, about two inches down." width="1200" height="912">
+      <div class="meta"><h2 class="hl">Deep Cover</h2><span class="fp">Military green tee</span></div>
+      <div class="line">(about two inches down)</div>
+      <p>Peanuts flower above ground, then push their pods into the soil to grow. The drawing shows that. It is the Field Operations special edition for this collection.</p>
+      <div><span class="tag special">Field Operations special edition</span></div>
+    </article>
+
+    <article class="ex">
+      <img src="mockups/extra-crunchy.png" alt="Brown crop tee: peanut over EXTRA CRUNCHY, Management has decided." width="1200" height="912">
+      <div class="meta"><h2 class="hl">Extra Crunchy</h2><span class="fp">Brown tee</span></div>
+      <div class="line">Management has decided.</div>
+      <p>The Board settles the creamy-versus-crunchy argument. The roasted-brown tee matches the product.</p>
+      <div><span class="tag">Core line</span></div>
+    </article>
+
+  </section>
+
+  <section class="notes" aria-label="Production notes">
+    <h3 class="hl">Before these go to print</h3>
+    <ul>
+      <li>Each print file is 10 × 8 in at 300 dpi (3000 × 2400 px, transparent PNG). Check it against the print area of the crop tee you choose, and resize if needed.</li>
+      <li>The mockups here are flat drawings for review. They are not Printful mockups.</li>
+      <li>Garment colours are suggestions. Confirm them against the blank's colour list, in Printful or with your embroidery/merch friend.</li>
+      <li>Nothing here names a real brand, and nothing jokes about allergies.</li>
+      <li>Source: <code>cropofnow/merch/croptops/</code>. Edit <code>designs.html</code>, then run <code>node render.js</code>.</li>
+    </ul>
+  </section>
+</main>

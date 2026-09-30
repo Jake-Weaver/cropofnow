@@ -1,0 +1,93 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../brand/brand-tokens.css">
+<style>
+  /* Crop of Now "Crop Tops" collection: front print art, authored in real inches (10 x 8 in, sized
+     for a cropped tee's shorter chest area). render.js -> print/<id>.png at 300 dpi, transparent.
+     Open designs.html#<id> to see one design. */
+  html, body { margin: 0; background: transparent; }
+  .art { display: none; position: relative; box-sizing: border-box; width: 10in; height: 8in; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: var(--con-navy); }
+  .art:target, body.all .art { display: flex; }
+  body.all { background: #888; } body.all .art { outline: 2px dashed #f0f; margin: 20px; }
+  .hl { font-family: var(--con-display); font-stretch: 125%; font-weight: 900; text-transform: uppercase; line-height: .96; letter-spacing: .01em; }
+  .as { font-family: var(--con-serif); font-style: italic; font-weight: 500; }
+  .fp { font-family: var(--con-mono); font-weight: 600; text-transform: uppercase; letter-spacing: .16em; }
+  .gold { color: var(--con-gold); } .cream { color: var(--con-cream); } .roast { color: var(--con-roast); } .slate { color: var(--con-slate); }
+  img, svg { display: block; }
+
+  /* 1 Top Crop (navy garment) */
+  #top-crop img { width: 2.5in; margin-bottom: .3in; }
+  #top-crop .hl { font-size: 1.45in; }
+  #top-crop .as { font-size: .62in; margin-top: .14in; }
+  #top-crop .fp { font-size: .2in; margin-top: .4in; color: #9aa6b3; }
+
+  /* Shared "Top Crop" family layout for the rest of the collection: mark, 2-line headline, aside, footer line. */
+  .fam img.mk { width: 2.2in; margin-bottom: .28in; }
+  .fam .hl { font-size: 1.3in; }
+  .fam .as { font-size: .58in; margin-top: .14in; }
+  .fam .fp { font-size: .2in; margin-top: .38in; }
+  .navy-ink { color: var(--con-navy); } .foot-dim { color: #9aa6b3; } .foot-slate { color: var(--con-slate); }
+
+  /* Deep Cover: soil line with a sprout above and the peanut pegged below it */
+  #deep-cover svg { width: 6in; height: 3.1in; margin-bottom: .2in; }
+</style></head>
+<body>
+
+<div class="art" id="top-crop">
+  <img src="../../brand/logo/svg/mark-full-color.svg">
+  <div class="hl cream">Top crop.</div>
+  <div class="as gold">Peanuts, obviously.</div>
+  <div class="fp">Crop of Now · Est. 2026</div>
+</div>
+
+<div class="art fam" id="cream-of-the-crop">
+  <img class="mk" src="../../brand/logo/svg/mark-full-color.svg">
+  <div class="hl navy-ink">Cream of<br>the crop.</div>
+  <div class="as roast">Peanut butter, technically.</div>
+  <div class="fp foot-slate">Crop of Now · Est. 2026</div>
+</div>
+
+<div class="art fam" id="high-yield">
+  <img class="mk" src="../../brand/logo/svg/mark-navy.svg">
+  <div class="hl navy-ink">High<br>yield.</div>
+  <div class="as navy-ink">Returns may vary.</div>
+  <div class="fp navy-ink">Crop of Now · Est. 2026</div>
+</div>
+
+<div class="art fam" id="shell-company">
+  <img class="mk" src="../../brand/logo/svg/mark-full-color.svg">
+  <div class="hl cream">Shell<br>company.</div>
+  <div class="as gold">Fully legitimate.</div>
+  <div class="fp foot-dim">Crop of Now · Est. 2026</div>
+</div>
+
+<div class="art fam" id="deep-cover">
+  <svg viewBox="0 0 600 310">
+    <g fill="none" stroke="#F6F0E4" stroke-linecap="round">
+      <path d="M300 118 L300 60" stroke-width="7"/>
+      <path d="M300 118 Q300 150 318 178" stroke-width="4" stroke-dasharray="2 10" stroke="#D9973F"/>
+      <line x1="20" y1="118" x2="580" y2="118" stroke-width="8"/>
+    </g>
+    <g fill="#F6F0E4">
+      <ellipse cx="272" cy="52" rx="24" ry="11" transform="rotate(-25 272 52)"/>
+      <ellipse cx="328" cy="52" rx="24" ry="11" transform="rotate(25 328 52)"/>
+      <ellipse cx="276" cy="22" rx="20" ry="9" transform="rotate(-50 276 22)"/>
+      <ellipse cx="324" cy="22" rx="20" ry="9" transform="rotate(50 324 22)"/>
+    </g>
+    <g fill="#F6F0E4" opacity=".35">
+      <circle cx="90" cy="160" r="4"/><circle cx="150" cy="210" r="3"/><circle cx="470" cy="170" r="4"/><circle cx="520" cy="240" r="3"/><circle cx="200" cy="280" r="3"/><circle cx="420" cy="275" r="4"/>
+    </g>
+    <image href="../../brand/logo/svg/mark-full-color.svg" x="262" y="165" width="130" height="130"/>
+  </svg>
+  <div class="hl cream">Deep<br>cover.</div>
+  <div class="as gold">(about two inches down)</div>
+  <div class="fp foot-dim">Field Operations · Crop of Now</div>
+</div>
+
+<div class="art fam" id="extra-crunchy">
+  <img class="mk" src="../../brand/logo/svg/mark-full-color.svg">
+  <div class="hl cream">Extra<br>crunchy.</div>
+  <div class="as gold">Management has decided.</div>
+  <div class="fp foot-dim">Crop of Now · Est. 2026</div>
+</div>
+</body></html>

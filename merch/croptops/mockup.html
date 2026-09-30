@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  /* Flat crop-tee mockup for review only (not a Printful mockup). mockup.html?<id> */
+  html, body { margin: 0; }
+  #stage { width: 1000px; height: 760px; background: #D9D3C7; }
+</style></head>
+<body>
+<svg id="stage" viewBox="0 0 1000 760" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="tee" d="M405 110 Q500 172 595 110 L745 142 L905 285 L828 380 L748 330 L752 560 Q500 578 248 560 L252 330 L172 380 L95 285 L255 142 Z"/>
+    <linearGradient id="shade" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset="1" stop-color="#000" stop-opacity=".12"/></linearGradient>
+  </defs>
+  <ellipse cx="500" cy="628" rx="300" ry="22" fill="#000" opacity=".08"/>
+  <use href="#tee" id="body"/>
+  <use href="#tee" fill="url(#shade)"/>
+  <g fill="none" stroke="#000" stroke-opacity=".16" stroke-width="3">
+    <path d="M405 110 Q500 175 595 110"/><path d="M415 118 Q500 190 585 118"/>
+    <path d="M252 330 L255 142"/><path d="M748 330 L745 142"/>
+    <path d="M249 538 Q500 556 751 538"/>
+    <path d="M190 358 L110 290"/><path d="M810 358 L890 290"/>
+  </g>
+  <image id="art" x="315" y="178" width="370" height="296"/>
+  <text id="label" x="500" y="712" text-anchor="middle" font-family="Consolas, monospace" font-size="20" letter-spacing="3" fill="#4A5663"></text>
+</svg>
+<script>
+  const GARMENT = {
+    'top-crop': ['#1C2733', 'NAVY'], 'cream-of-the-crop': ['#F3ECDD', 'NATURAL'],
+    'high-yield': ['#D9973F', 'GOLD'], 'shell-company': ['#17181A', 'BLACK'],
+    'deep-cover': ['#4B5236', 'MILITARY GREEN'], 'extra-crunchy': ['#7A4A24', 'BROWN'],
+  };
+  const id = location.search.slice(1) || 'top-crop';
+  const [fill, name] = GARMENT[id];
+  document.getElementById('body').setAttribute('fill', fill);
+  document.getElementById('label').textContent = id.toUpperCase() + ' · ' + name + ' CROP TEE';
+  const art = document.getElementById('art');
+  art.addEventListener('load', () => { document.body.dataset.ready = '1'; });
+  art.setAttribute('href', 'print/' + id + '.png');
+</script>
+</body></html>
