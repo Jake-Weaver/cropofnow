@@ -1,0 +1,113 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../brand/brand-tokens.css">
+<style>
+  /* "I Don't Do Almond Butter" collection: print art for the line that grew out of the tote.
+     Sizes are px at 300 dpi. render.js -> print/<id>.png (transparent). Open designs.html#<id> to see one.
+     Almond Alert red means almonds only; on dark garments it's lifted to --abt-red-lit so it reads. */
+  :root { --abt-red-lit: #E0604E; }
+  html, body { margin: 0; background: transparent; }
+  .art { display: none; position: relative; box-sizing: border-box; flex-direction: column; align-items: center; justify-content: center; text-align: center; white-space: nowrap; color: var(--con-navy); }
+  .art:target { display: flex; }
+  .hl { font-family: var(--con-display); font-stretch: 125%; font-weight: 900; text-transform: uppercase; line-height: 1.02; letter-spacing: .01em; }
+  .as { font-family: var(--con-serif); font-style: italic; font-weight: 500; }
+  .fp { font-family: var(--con-mono); font-weight: 600; text-transform: uppercase; letter-spacing: .16em; }
+  .red { color: var(--con-red); } .red-lit { color: var(--abt-red-lit); } .cream { color: var(--con-cream); } .gold { color: var(--con-gold); } .slate { color: var(--con-slate); } .dim { color: #9aa6b3; }
+  img, svg { display: block; }
+
+  /* Natural tee, 12 x 8 in: the tote, promoted */
+  #abt-tee { width: 3600px; height: 2400px; }
+  #abt-tee .hl { font-size: 290px; }
+  #abt-tee .fp { font-size: 100px; margin-top: 110px; }
+  #abt-tee img { height: 460px; margin-top: 150px; }
+
+  /* Navy hoodie, 12 x 9 in */
+  #abt-hoodie { width: 3600px; height: 2700px; }
+  #abt-hoodie img { height: 520px; margin-bottom: 150px; }
+  #abt-hoodie .hl { font-size: 290px; }
+  #abt-hoodie .as { font-size: 200px; margin-top: 60px; }
+  #abt-hoodie .fp { font-size: 80px; margin-top: 130px; }
+
+  /* Black crop top, 10 x 8 in (same frame as the Crop Tops collection) */
+  #abt-crop { width: 3000px; height: 2400px; }
+  #abt-crop img { height: 620px; margin-bottom: 90px; }
+  #abt-crop .hl { font-size: 250px; }
+  #abt-crop .as { font-size: 175px; margin-top: 45px; }
+  #abt-crop .fp { font-size: 60px; margin-top: 115px; }
+
+  /* 11 oz mug wrap, 9 x 3.5 in: statement on one side, the no-almond sign on the other */
+  #abt-mug { width: 2700px; height: 1050px; flex-direction: row; justify-content: space-around; }
+  #abt-mug .side { width: 1250px; display: flex; flex-direction: column; align-items: center; }
+  #abt-mug .hl { font-size: 108px; }
+  #abt-mug .fp { font-size: 50px; margin-top: 50px; }
+  #abt-mug svg { width: 600px; height: 600px; }
+  #abt-mug .as { font-size: 92px; margin-top: 30px; }
+
+  /* 4 in round sticker: the no-almond sign */
+  #abt-sticker { width: 1200px; height: 1200px; border-radius: 50%; background: var(--con-paper); }
+  #abt-sticker .disc { position: absolute; inset: 30px; border-radius: 50%; background: var(--con-cream); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  #abt-sticker svg { width: 610px; height: 610px; margin-top: -30px; }
+  #abt-sticker .hl { font-size: 92px; line-height: 1.06; margin-top: 30px; }
+  #abt-sticker .fp { font-size: 36px; margin-top: 26px; }
+
+  /* Khaki dad cap, flat embroidery in two threads (navy + red), 5.3 x 2 in. Kept to bold caps: thread can't do hairlines. */
+  #abt-cap { width: 1590px; height: 600px; }
+  #abt-cap .hl { font-size: 122px; line-height: 1.12; }
+</style></head>
+<body>
+<!-- The no-almond sign, shared by the mug and sticker. -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="no-almond">
+      <path d="M150 42 C 205 70, 232 150, 214 208 C 200 252, 172 268, 150 268 C 128 268, 100 252, 86 208 C 68 150, 95 70, 150 42 Z" fill="#B5793E"/>
+      <path d="M150 64 C 190 92, 206 150, 196 196" fill="none" stroke="#8A5427" stroke-width="7" stroke-linecap="round"/>
+      <path d="M128 100 C 116 130, 112 168, 118 200" fill="none" stroke="#8A5427" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+      <circle cx="150" cy="150" r="128" fill="none" stroke="#A8342A" stroke-width="26"/>
+      <line x1="60" y1="240" x2="240" y2="60" stroke="#A8342A" stroke-width="26" stroke-linecap="butt"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="art" id="abt-tee">
+  <div class="hl">I don't do</div><div class="hl red">Almond butter.</div>
+  <div class="fp slate">— A peanut person</div>
+  <img src="../../brand/logo/svg/mark-navy.svg">
+</div>
+
+<div class="art" id="abt-hoodie">
+  <img src="../../brand/logo/svg/mark-full-color.svg">
+  <div class="hl cream">I don't do</div><div class="hl red-lit">Almond butter.</div>
+  <div class="as gold">Please stop offering.</div>
+  <div class="fp dim">Crop of Now · Est. 2026</div>
+</div>
+
+<div class="art" id="abt-crop">
+  <img src="../../brand/logo/svg/mark-full-color.svg">
+  <div class="hl cream">I don't do</div><div class="hl red-lit">Almond butter.</div>
+  <div class="as gold">Politely. Firmly.</div>
+  <div class="fp dim">Crop of Now · Est. 2026</div>
+</div>
+
+<div class="art" id="abt-mug">
+  <div class="side">
+    <div class="hl">I don't do</div><div class="hl red">Almond butter.</div>
+    <div class="fp slate">— A peanut person</div>
+  </div>
+  <div class="side">
+    <svg viewBox="0 0 300 300"><use href="#no-almond"/></svg>
+    <div class="as slate">(not before coffee, not after)</div>
+  </div>
+</div>
+
+<div class="art" id="abt-sticker">
+  <div class="disc">
+    <svg viewBox="0 0 300 300"><use href="#no-almond"/></svg>
+    <div class="hl">I don't do<br><span class="red">almond butter.</span></div>
+    <div class="fp slate">Crop of Now</div>
+  </div>
+</div>
+
+<div class="art" id="abt-cap">
+  <div class="hl">I don't do</div><div class="hl red">Almond butter.</div>
+</div>
+</body></html>

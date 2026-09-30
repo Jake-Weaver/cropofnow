@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  /* Flat review tiles (not Printful mockups): each print file on its garment color. mockup.html?<id> for one, no query for all. */
+  html, body { margin: 0; background: #eee; font-family: Consolas, monospace; }
+  .t { width: 800px; height: 800px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; margin: 6px; position: relative; }
+  .t img { max-width: 78%; max-height: 62%; }
+  .t span { position: absolute; bottom: 18px; font-size: 15px; letter-spacing: 3px; opacity: .6; }
+</style></head>
+<body>
+<script>
+  const G = [
+    ['abt-tee', '#EFE6D2', 'NATURAL TEE'], ['abt-hoodie', '#1C2733', 'NAVY HOODIE'], ['abt-crop', '#17181A', 'BLACK CROP TOP'],
+    ['abt-mug', '#FFFFFF', '11 OZ MUG (WRAP)'], ['abt-sticker', '#D9D3C7', '4 IN STICKER'], ['abt-cap', '#C8B48E', 'KHAKI CAP · EMBROIDERED'],
+  ];
+  const only = location.search.slice(1);
+  for (const [id, bg, name] of G.filter(g => !only || g[0] === only)) {
+    const d = document.createElement('div'); d.className = 't'; d.id = 't-' + id; d.style.background = bg;
+    d.innerHTML = `<img src="print/${id}.png"><span style="color:${bg === '#1C2733' || bg === '#17181A' ? '#fff' : '#000'}">${name}</span>`;
+    document.body.appendChild(d);
+  }
+</script>
+</body></html>
