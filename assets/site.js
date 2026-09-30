@@ -20,8 +20,8 @@ const NAV = [
 ];
 
 const TICKER = [
-  ["PNUT", "▲ 3.2 GAL/OZ", "up"],
-  ["ALMD", "▼ 28.7 GAL/OZ", "down"],
+  ["PNUT", "▲ 1.6 GAL/OZ", "up"],
+  ["ALMD", "▼ 28.6 GAL/OZ", "down"],
   ["LEGUME IDX", "▲ ALL-TIME HIGH", "up"],
   ["GRAND CANYON COVERAGE", "▲ 100%", "up"],
   ["CREAMY/CRUNCHY SPREAD", "EAST ▲ / WEST ▲", "up"],
