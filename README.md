@@ -43,3 +43,33 @@ Then open http://localhost:8765
 - GitHub Pages is still enabled as a fallback; the `CNAME` file is for it. Rollback = in Cloudflare, point `A @` back at GitHub Pages (185.199.108-111.153) and delete the `AAAA @` record.
 - Pre-cutover records and rollback steps: `docs/dns-before-cutover.md`.
 - The old Google Sites version still exists at sites.google.com/view/wwwcropofnowcom (not linked to the domain any more).
+
+## If it breaks
+
+**What runs:** no AI and no build. On the VPS, `cropofnow-pull.timer` (systemd, 1 min after boot and then every
+minute) runs `cropofnow-pull.service` as user `bobweaver`: `git -C /opt/cropofnow pull -q --ff-only`. Caddy serves
+`/opt/cropofnow` as static files for `cropofnow.com` (block in `/etc/caddy/Caddyfile`; `www.cropofnow.com`
+redirects).
+
+**Where to look first (on the VPS, `ssh bobweaver-vps`)**
+```
+systemctl status cropofnow-pull.timer caddy
+journalctl -u cropofnow-pull.service -n 20      # pull errors
+journalctl -u caddy -n 50                       # TLS / config errors
+sudo -u bobweaver git -C /opt/cropofnow log -1  # what is live
+```
+Run git in `/opt/cropofnow` **as `bobweaver`**. Run as root, git refuses ("dubious ownership").
+
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| Push didn't show up | Pull failing: the checkout has local edits or diverged history (`--ff-only` refuses) | `sudo -u bobweaver git -C /opt/cropofnow status`; never edit files on the server; `git reset --hard origin/main` as bobweaver if needed |
+| Site down, certificate error | Caddy stopped, or the Let's Encrypt renewal failed (DNS or port 80 blocked) | `systemctl restart caddy`; check DNS still points at the VPS (Cloudflare, grey cloud) |
+| Domain doesn't resolve at all | Registration lapsed at Squarespace, or the Cloudflare nameservers were changed | Check renewal at Squarespace and the NS records |
+| Emergency | VPS is down | Roll back to GitHub Pages (see Hosting & DNS above) |
+
+**Re-deploy by hand:** `sudo systemctl start cropofnow-pull.service` (or just push to `main`). **Restart:**
+`sudo systemctl restart caddy` (`caddy validate --config /etc/caddy/Caddyfile` first if you edited it).
+
+**Don'ts:** this repo is public, so never commit secrets, server passwords or anything from `docs/` that shouldn't be
+public. Every push to `main` is live within a minute. Follow the VPS's own rules in `/opt/bobweaver-netcup-setup`
+(Caddy is the only public entry; check `PORTS.md` before adding services).
