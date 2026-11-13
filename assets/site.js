@@ -5,7 +5,7 @@ const CONFIG = {
   amazonTag: "cropofnow-20",
   // Merch store base URL once Printful/Shopify is live (e.g. "https://shop.cropofnow.com").
   // Blank = shop buttons read "Coming soon".
-  storeUrl: "",
+  storeUrl: "https://emhp40-tp.myshopify.com",
 };
 // ======================================================
 

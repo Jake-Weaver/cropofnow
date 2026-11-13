@@ -23,6 +23,7 @@ Both live at the top of `assets/site.js`:
 - `amazonTag`: your Amazon Associates tracking ID. Every Amazon link on the site gets it automatically.
 - `storeUrl`: the merch store base URL. Each shop button links to `storeUrl/products/<data-product>`, so give
   products in the store the same handles as the `data-product` values in `shop.html`. Blank = "Coming soon".
+  Live since 2026-11-13: `https://emhp40-tp.myshopify.com` (Shopify store "Crop of Now", Printful fulfills).
 
 ## Brand assets
 - `assets/favicon.svg`: the peanut mark. **Original artwork.** The old Google Sites favicon was a third-party
@@ -65,6 +66,7 @@ Run git in `/opt/cropofnow` **as `bobweaver`**. Run as root, git refuses ("dubio
 | Push didn't show up | Pull failing: the checkout has local edits or diverged history (`--ff-only` refuses) | `sudo -u bobweaver git -C /opt/cropofnow status`; never edit files on the server; `git reset --hard origin/main` as bobweaver if needed |
 | Site down, certificate error | Caddy stopped, or the Let's Encrypt renewal failed (DNS or port 80 blocked) | `systemctl restart caddy`; check DNS still points at the VPS (Cloudflare, grey cloud) |
 | Domain doesn't resolve at all | Registration lapsed at Squarespace, or the Cloudflare nameservers were changed | Check renewal at Squarespace and the NS records |
+| "Buy now" goes to a 404 or a password page | Product handle in Shopify no longer matches `data-product` in `shop.html`, or Shopify private mode got turned back on | Match the handle (Shopify Admin > product > Search engine listing > URL handle); Online Store > Preferences > Private mode off |
 | Emergency | VPS is down | Roll back to GitHub Pages (see Hosting & DNS above) |
 
 **Re-deploy by hand:** `sudo systemctl start cropofnow-pull.service` (or just push to `main`). **Restart:**
